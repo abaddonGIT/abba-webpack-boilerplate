@@ -1,0 +1,73 @@
+/*
+* Стандартные примеси для базовых свойств
+*/
+
+.is-left {
+  float: left;
+}
+
+.is-right {
+  float: right;
+}
+
+.is-block {
+  display: block;
+}
+
+.is-none {
+  display: none;
+}
+
+.is-b-inline {
+  display: inline-block;
+}
+
+.is-clear {
+  .clearfix();
+}
+
+@align: left, right, center, justify;
+
+.align-loop (@i) when (@i > 0) {
+  @name: extract(@align, @i);
+  .t-@{name} {
+    text-align: @name;
+  }
+  .align-loop(@i - 1);
+}
+
+.align-loop(length(@align));
+
+.d-none {
+  text-decoration: none;
+}
+
+.d-line {
+  text-decoration: underline;
+}
+
+.d-cross {
+  text-decoration: line-through;
+}
+
+/***************************
+* Для плагина анимации
+****************************/
+.wow {
+  visibility: hidden;
+}
+
+/****************************
+* SPRITES
+****************************/
+@site-sprite: dogs;
+@sLength: length(@site-sprite);
+.sprite-loop (@i) when (@i > 0) {
+  @sp: extract(@site-sprite, @i);
+  .sprite--@{sp} {
+    .sprite(@@sp);
+  }
+  .sprite-loop(@i - 1);
+}
+
+.sprite-loop(@sLength);

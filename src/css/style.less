@@ -1,0 +1,24 @@
+@import "grid/grid.css";
+@import "fonts";
+@import "lessVariables";
+@import "utilityMixins";
+@import "gradientsMixins";
+@import "baseMixins";
+@import "sprites";
+@import "badIe.css";
+@import "animate/animate.min.css";
+
+html {
+  font-size: @default-font-px-size;
+
+  body {
+    font-size: @default-font-rem-size;
+    color: @default-font-color;
+    background: url("../images/350x150.png");
+  }
+}
+
+body, html {
+  font-family: @default-font-family;
+  -webkit-text-size-adjust: none;
+}
