@@ -5,10 +5,12 @@
 "use strict";
 import "normalize.css";
 import "../css/style.less";
+import jQuery from "jquery";
+import "./vendors/migrate";
  
 class Application {
     constructor() {
-
+        global.$ = global.jQuery = jQuery;
     }
 
     /**

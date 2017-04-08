@@ -70,7 +70,10 @@ plugins.push(new webpack.ProvidePlugin({
     'assign': 'lodash/assign',
     'isEmpty': 'lodash/isEmpty',
     'merge': 'lodash/merge',
-    '$': 'jquery'
+    '$': 'jquery',
+    'jQuery': "jquery",
+    'window.jQuery': 'jquery',
+    'window.$': 'jquery'
 }));
 
 if (!isProd) {
