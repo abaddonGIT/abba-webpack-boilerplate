@@ -49,7 +49,11 @@
     "gulp-imagemin": "^3.1.1",
     "gulp-file": "^0.3.0",
     "run-sequence": "latest",
-    "gulp.spritesmith": "latest"
+    "gulp.spritesmith": "latest",
+    "gulp-svg-sprite": "^1.3.6",
+    "gulp-svgmin": "^1.2.3",
+    "gulp-cheerio": "^0.6.2",
+    "gulp-replace": "^0.5.4"
   },
   "dependencies": {
     "es6-promise": "^3.1.2",

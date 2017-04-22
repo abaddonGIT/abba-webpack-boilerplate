@@ -24,6 +24,9 @@ const config = {
         imagePath: '../images/',
         cssPath: path.join(src + '/css'),
         padding: 5
+    },
+    svg: {
+        src: path.join(src, '/images/svg/*.svg')
     }
 };
 

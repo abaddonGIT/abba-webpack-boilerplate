@@ -1,0 +1,15 @@
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor; }
+
+.icon-check {
+  font-size: 3.2rem;
+  width: 1em; }
+
+.icon-target {
+  font-size: 3rem;
+  width: 1em; }
+
+/*# sourceMappingURL=sprite.css.map */

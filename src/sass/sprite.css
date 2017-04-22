@@ -1,0 +1,23 @@
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor; }
+
+.icon-check {
+  font-size: 3.2rem;
+  width: 1em; }
+
+.icon-sprite {
+  font-size: 0rem;
+  width: NaNem; }
+
+.icon-target {
+  font-size: 3rem;
+  width: 1em; }
+
+.icon-test {
+  font-size: 4.25rem;
+  width: 1.00282em; }
+
+/*# sourceMappingURL=sprite.css.map */

@@ -5,7 +5,6 @@
 @import "gradientsMixins";
 @import "baseMixins";
 @import "sprites";
-@import "badIe.css";
 @import "animate/animate.min.css";
 
 html {
@@ -21,4 +20,18 @@ html {
 body, html {
   font-family: @default-font-family;
   -webkit-text-size-adjust: none;
+}
+
+.icon-check {
+  .set-size(30px);
+  &.red_mod {
+    fill: red;
+  }
+}
+
+.icon-target {
+  .set-size(30px);
+  &.yellow_mod {
+    fill: yellow;
+  }
 }
