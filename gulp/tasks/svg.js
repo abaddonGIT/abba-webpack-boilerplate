@@ -33,7 +33,7 @@ gulp.task('svg', function () {
                     sprite: "../../sprite.svg",
                     render: {
                         scss: {
-                            dest: '../../../../sass/sprite.scss',
+                            dest: '../../../sass/sprite.scss',
                             template: './src/sass/templates/sprite_template.scss'
                         }
                     }

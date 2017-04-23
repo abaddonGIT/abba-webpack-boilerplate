@@ -10,6 +10,7 @@ const sourcePath = env.sourcePath,
     publicPath = env.publicPath;
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 //Подрубаем плагины
 let plugins = [];
@@ -84,6 +85,16 @@ if (!isProd) {
     plugins.push(
         new webpack.HotModuleReplacementPlugin()
     );
+} else {
+    /*
+     * CopyWebpackPlugin
+     * Копирует файлы в директорию сборки
+     * docs - https://github.com/kevlened/copy-webpack-plugin
+     */
+    plugins.push(new CopyWebpackPlugin([
+        {from: sourcePath + '/*.html', to: distPath + '/'},
+        {from: sourcePath + '/js/vendors/badIe.js', to: distPath + '/js/vendors/badIe.js'}
+    ]));
 }
 
 
@@ -176,6 +187,7 @@ module.exports = {
         extensions: ['.js'],
         modules: [
             path.resolve(__dirname, 'node_modules'),
+            path.resolve(__dirname, './src'),
             sourcePath
         ]
     },

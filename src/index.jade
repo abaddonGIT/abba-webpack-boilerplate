@@ -1,16 +1,8 @@
-include mixins
-doctype html
-html(lang='en')
-    head
-        meta(charset='UTF-8')
-        link(href="css/style.css", rel="stylesheet", type="text/css")
-        title
+include templates/mixins
+include templates/head
     body
         p
             | Hello world!
         +icon('check','red_mod')
         +icon('target','yellow_mod')
-    footer
-        script(src="./js/vendors/badIe.js")
-        script(src="vendor.bundle.js")
-        script(src="js.bundle.js")
+    include templates/scripts

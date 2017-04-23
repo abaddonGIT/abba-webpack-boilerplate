@@ -7,6 +7,39 @@
 @import "sprites";
 @import "animate/animate.min.css";
 
+/****************************
+* SPRITES
+****************************/
+@site-sprite: dogs;
+@sLength: length(@site-sprite);
+.sprite-loop (@i) when (@i > 0) {
+  @sp: extract(@site-sprite, @i);
+  .sprite--@{sp} {
+    .sprite(@@sp);
+  }
+  .sprite-loop(@i - 1);
+}
+
+/*
+* Bad ie styles
+*/
+#badIE {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #673AB7;
+
+  h1 {
+    position: absolute;
+    top: 48%;
+    width: 100%;
+    color: @white;
+    .t-center();
+  }
+}
+
+.sprite-loop(@sLength);
+
 html {
   font-size: @default-font-px-size;
 

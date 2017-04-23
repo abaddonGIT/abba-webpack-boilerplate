@@ -22,21 +22,21 @@
   display: inline-block;
 }
 
-.is-clear {
-  .clearfix();
+.t-center {
+  text-align: center;
 }
 
-@align: left, right, center, justify;
-
-.align-loop (@i) when (@i > 0) {
-  @name: extract(@align, @i);
-  .t-@{name} {
-    text-align: @name;
-  }
-  .align-loop(@i - 1);
+.t-left {
+  text-align: left;
 }
 
-.align-loop(length(@align));
+.t-right {
+  text-align: right;
+}
+
+.t-justify {
+  text-align: justify;
+}
 
 .d-none {
   text-decoration: none;
@@ -55,37 +55,4 @@
 ****************************/
 .wow {
   visibility: hidden;
-}
-
-/****************************
-* SPRITES
-****************************/
-@site-sprite: dogs;
-@sLength: length(@site-sprite);
-.sprite-loop (@i) when (@i > 0) {
-  @sp: extract(@site-sprite, @i);
-  .sprite--@{sp} {
-    .sprite(@@sp);
-  }
-  .sprite-loop(@i - 1);
-}
-
-.sprite-loop(@sLength);
-
-/*
-* Bad ie styles
-*/
-#badIE {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: #673AB7;
-
-  h1 {
-    position: absolute;
-    top: 48%;
-    width: 100%;
-    color: @white;
-    .t-center();
-  }
 }
