@@ -1,8 +1,9 @@
 include templates/mixins
-include templates/head
+doctype html
+html(lang='en')
+    include templates/head
     body
         p
             | Hello world!
         +icon('check','red_mod')
-        +icon('target','yellow_mod')
-    include templates/scripts
+        include templates/scripts

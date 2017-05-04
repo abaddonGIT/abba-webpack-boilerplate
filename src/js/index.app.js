@@ -21,6 +21,11 @@ class Application {
             const Anim = require('./components/Animate').default;
             Anim.init();
         });
+        //Навигация
+        require.ensure([], (require) => {
+           const Nav = require('./components/Navigation').default;
+           Nav.init();
+        });
         this.initFancybox();
         this.pageWidget(['index']);
     }
@@ -45,7 +50,6 @@ class Application {
      */
     pageWidget(pages) {
         let widgetWrap = $('<div class="widget_wrap"><ul class="widget_list"></ul></div>');
-        console.log("asd")
         widgetWrap.prependTo("body");
         for (let i = 0; i < pages.length; i++) {
             $('<li class="widget_item"><a class="widget_link" href="' + pages[i] + '.html' + '">' + pages[i] + '</a></li>').appendTo('.widget_list');
