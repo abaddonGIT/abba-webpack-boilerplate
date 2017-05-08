@@ -12,11 +12,10 @@ class MainSlider {
 
     init() {
         if (this.slider) {
-            const slides = this.slider.querySelectorAll(".c-slider__item");
-
+            const speed = +this.slider.getAttribute('data-speed');
             $(this.slider).flexslider({
                 touch: true,
-                slideshowSpeed: 5000,
+                slideshowSpeed: isNaN(speed) ? 5000 : speed,
                 animationSpeed: 2000
             });
         }

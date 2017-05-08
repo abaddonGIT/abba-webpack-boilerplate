@@ -15,44 +15,29 @@ class Carusel {
         if (ln) {
             for (let i = 0; i < ln; i++) {
                 const carusel = this.carusel[i];
-                const type = carusel.getAttribute('data-type');
-                if (type === 'single') {
-                    $(carusel).owlCarousel({
-                        loop: false,
-                        margin: 40,
-                        responsiveClass: true,
-                        responsive: {
-                            0: {
-                                items: 1,
-                                nav: true
-                            }
+                $(carusel).owlCarousel({
+                    loop: false,
+                    margin: 40,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: true
+                        },
+                        400: {
+                            items: 2,
+                            nav: true
+                        },
+                        768: {
+                            items: 3,
+                            nav: true
+                        },
+                        992: {
+                            items: 5,
+                            nav: true
                         }
-                    });
-                } else {
-                    $(carusel).owlCarousel({
-                        loop: false,
-                        margin: 40,
-                        responsiveClass: true,
-                        responsive: {
-                            0: {
-                                items: 1,
-                                nav: true
-                            },
-                            400: {
-                                items: 2,
-                                nav: true
-                            },
-                            768: {
-                                items: 3,
-                                nav: true
-                            },
-                            992: {
-                                items: 5,
-                                nav: true
-                            }
-                        }
-                    });
-                }
+                    }
+                });
             }
         }
     }
