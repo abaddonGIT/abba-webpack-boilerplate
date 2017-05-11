@@ -13,7 +13,8 @@ gulp.task('fonts', function () {
     function getFolders() {
         return fs.readdirSync(paths.src)
             .filter(function (file) {
-                code += `@font-face {
+                if (file.split('.').length < 2) {
+                    code += `@font-face {
                         font-family: "${file}";
                         src: url("./fonts/${file}/${file}.eot");
                         src: url("./fonts/${file}/${file}.eot?#iefix")format("embedded-opentype"),
@@ -22,6 +23,7 @@ gulp.task('fonts', function () {
                         font-style: normal;
                         font-weight: normal;
                     }`;
+                }
             });
     }
 
