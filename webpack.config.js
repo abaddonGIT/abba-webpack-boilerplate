@@ -132,12 +132,11 @@ module.exports = {
                         {
                             loader: 'postcss-loader',
                             options: {
-                                plugins: function () {
-                                    return [
-                                        require('precss'),
-                                        require('autoprefixer')
-                                    ];
-                                }
+                                plugins: (loader) => [
+                                    require('postcss-import')({ root: loader.resourcePath }),
+                                    require('autoprefixer')(),
+                                    require('cssnano')()
+                                ]
                             }
                         },
                         {
