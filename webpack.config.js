@@ -10,6 +10,7 @@ const sourcePath = env.sourcePath,
     publicPath = env.publicPath;
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 //Подрубаем плагины
@@ -42,6 +43,20 @@ if (isProd) {
     }));
 }
 
+//Добавление всех страниц
+const fs = require('fs');
+
+fs.readdirSync(env.sourcePath).forEach(file => {
+    if (file.indexOf('.pug') !== -1) {
+        plugins.push(new HtmlWebpackPlugin({
+            inject: false,
+            filename: file.replace('pug', 'html'),
+            template: './' + file,
+            hash: true
+        }));
+    }
+});
+
 plugins.push(new ExtractTextPlugin({filename: 'css/style.css', allChunks: true}));
 
 /*
@@ -54,6 +69,13 @@ plugins.push(new webpack.optimize.CommonsChunkPlugin({
     minChunks: Infinity,
     filename: 'vendor.bundle.js'
 }));
+
+plugins.push(new webpack.optimize.CommonsChunkPlugin({
+    name: 'node',
+    minChunks: ({resource}) => /node_modules/.test(resource)
+}));
+
+plugins.push(new webpack.optimize.CommonsChunkPlugin({name: 'manifest'}));
 /*
  * DefinePlugin
  * Создает глобальную константу, которая доступна во время компиляции
@@ -92,7 +114,6 @@ if (!isProd) {
      * docs - https://github.com/kevlened/copy-webpack-plugin
      */
     plugins.push(new CopyWebpackPlugin([
-        {from: sourcePath + '/*.html', to: distPath + '/'},
         {from: sourcePath + '/js/vendors/badIe.js', to: distPath + '/js/vendors/badIe.js'}
     ]));
 }
@@ -104,9 +125,9 @@ module.exports = {
     entry: {
         js: './js/index.app.js',
         vendor: [
-            'es6-promise',
-            'isomorphic-fetch',
-            'babel-polyfill',
+            // 'es6-promise',
+            // 'isomorphic-fetch',
+            // 'babel-polyfill',
             'jquery'
         ]
     },
@@ -133,9 +154,9 @@ module.exports = {
                             loader: 'postcss-loader',
                             options: {
                                 plugins: (loader) => [
-                                    require('postcss-import')({ root: loader.resourcePath }),
+                                    require('postcss-import')({root: loader.resourcePath}),
                                     require('autoprefixer')(),
-                                    require('cssnano')()
+                                    require('cssnano')({zindex: false})
                                 ]
                             }
                         },
@@ -177,6 +198,17 @@ module.exports = {
                             plugins: ['transform-runtime'],
                             presets: ['es2015', 'stage-0']
                         }
+                    }
+                ]
+            },
+            {
+                test: /\.(pug)$/,
+                use: [
+                    {
+                        loader: 'html-loader'
+                    },
+                    {
+                        loader: 'pug-html-loader'
                     }
                 ]
             }
