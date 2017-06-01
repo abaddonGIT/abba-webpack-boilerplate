@@ -1,22 +1,9 @@
-
-
 include templates/mixins
 doctype html
 html(lang='en')
     include templates/head
     body
-        p
-            | Hello world!!!!!!!!!!!!!!!!
-        +icon('check','red_mod')
-        .c-list
-            .c-item
-                |test
-            .c-item
-                | test
-            .c-item
-                | test
-            .c-item
-                | test
-            .c-item
-                | test
+        header.c-header
+        main.c-main
+        .c-footer
         include templates/scripts

@@ -96,7 +96,12 @@ plugins.push(new webpack.ProvidePlugin({
     '$': 'jquery',
     'jQuery': "jquery",
     'window.jQuery': 'jquery',
-    'window.$': 'jquery'
+    'window.$': 'jquery',
+    'SvgEvery': 'svg4everybody',
+    'isMobile': [sourcePath + '/js/vendors/isMobile'],
+    '_addClass': [sourcePath + '/js/vendors/Help', 'addClass'],
+    '_removeClass': [sourcePath + '/js/vendors/Help', 'removeClass'],
+    '_hasClass': [sourcePath + '/js/vendors/Help', 'hasClass']
 }));
 
 if (!isProd) {
@@ -128,6 +133,7 @@ module.exports = {
             // 'es6-promise',
             // 'isomorphic-fetch',
             // 'babel-polyfill',
+            'svg4everybody',
             'jquery'
         ]
     },

@@ -1,6 +1,7 @@
 /**
  * Created by abaddon on 19.04.2017.
  */
+'use strict';
 import './style.less';
 
 class Nav {

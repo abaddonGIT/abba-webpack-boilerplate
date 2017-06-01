@@ -2,16 +2,21 @@
  * Created by abaddon on 26.05.2017.
  *
  */
-
+'use strict';
 class Application {
     constructor() {
-
+        this.body = document.querySelector('body');
     }
 
     /**
      * Run application function
      */
     start() {
+        SvgEvery();
+        if (isMobile.any) {
+            _addClass(this.body, 'is-mobile');
+        }
+
         //Анимация для страницы
         if (document.querySelectorAll('.wool').length) {
             require.ensure([], (require) => {
@@ -29,6 +34,15 @@ class Application {
         //Навигация по макетам
         if (process.env.NODE_ENV === 'development') {
             this.pageWidget(['index']);
+        }
+
+        //Отложенная подгрузка изображений
+        const Images = document.querySelectorAll('.js-lazy');
+        if (Images.length) {
+            require.ensure([], (require) => {
+                const Lazy = require('./components/LazyLoad').default;
+                Lazy.init();
+            });
         }
     }
 
@@ -59,6 +73,7 @@ class Application {
         let widgetStilization = $('<style>body {position:relative} .widget_wrap{position:absolute;top:0;left:0;z-index:9999;padding:10px 20px;background:#222;border-bottom-right-radius:10px;-webkit-transition:all .3s ease;transition:all .3s ease;-webkit-transform:translate(-100%,0);-ms-transform:translate(-100%,0);transform:translate(-100%,0)}.widget_wrap:after{content:" ";position:absolute;top:0;left:100%;width:24px;height:24px;background:#222 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAABGdBTUEAALGPC/xhBQAAAAxQTFRF////////AAAA////BQBkwgAAAAN0Uk5TxMMAjAd+zwAAACNJREFUCNdjqP///y/DfyBg+LVq1Xoo8W8/CkFYAmwA0Kg/AFcANT5fe7l4AAAAAElFTkSuQmCC) no-repeat 50% 50%;cursor:pointer}.widget_wrap:hover{-webkit-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}.widget_item{padding:0 0 10px}.widget_link{color:#fff;text-decoration:none;font-size:15px;}.widget_link:hover{text-decoration:underline} </style>');
         widgetStilization.prependTo(".widget_wrap");
     }
-};
+}
+;
 
 export default new Application();

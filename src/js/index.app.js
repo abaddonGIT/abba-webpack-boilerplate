@@ -3,10 +3,11 @@
  *  Application entry point
  */
 "use strict";
-import "normalize.css";
-import "../css/style.less";
-import jQuery from "jquery";
-import "./vendors/migrate";
+import 'normalize.css';
+import '../css/style.less';
+import jQuery from 'jquery';
+import './vendors/migrate';
+import isMobile from './vendors/isMobile';
 import App from './App';
 
 global.$ = global.jQuery = jQuery;
