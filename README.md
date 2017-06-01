@@ -1,17 +1,17 @@
 # WebPackAndGulp
 Start project with Gulp and Webpack2
 
-##Install
+## Install
     npm install    
-###Start dev server
+### Start dev server
     npm start
-###Production build    
+### Production build    
     npm gulp
-##Gulp tasks
+## Gulp tasks
 
-####Create sprite image
+#### Create sprite image
     gulp sprites
-####Create svg sprite
+#### Create svg sprite
     gulp svg
-####Minify images
+#### Minify images
     gulp imagemin
