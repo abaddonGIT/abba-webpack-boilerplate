@@ -9,6 +9,6 @@ module.exports = {
         el.classList.remove(className);
     },
     hasClass: (el, className) => {
-        return el.className.contains(className);
+        return el.classList.contains(className);
     }
 };

@@ -22,6 +22,8 @@ gulp.task('svg', function () {
                 $('[fill]').removeAttr('fill');
                 $('[stroke]').removeAttr('stroke');
                 $('[style]').removeAttr('style');
+                $('defs').remove();
+                $('style').remove();
             },
             parseOptions: {xmlMode: true}
         }))
@@ -32,9 +34,9 @@ gulp.task('svg', function () {
                 symbol: {
                     sprite: "../../sprite.svg",
                     render: {
-                        scss: {
-                            dest: '../../../sass/sprite.scss',
-                            template: './src/sass/templates/sprite_template.scss'
+                        less: {
+                            dest: '../../../css/svgSprite.less',
+                            template: './src/css/template/sprite_template.less'
                         }
                     }
                 }
