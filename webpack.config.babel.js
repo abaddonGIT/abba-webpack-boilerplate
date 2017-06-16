@@ -72,7 +72,10 @@ plugins.push(new webpack.optimize.CommonsChunkPlugin({
 
 plugins.push(new webpack.optimize.CommonsChunkPlugin({
     name: 'node',
-    minChunks: ({resource}) => /node_modules/.test(resource)
+    minChunks: function (module){
+        var context = module.context;
+        return context && context.indexOf('node_modules') >= 0;
+    }
 }));
 
 plugins.push(new webpack.optimize.CommonsChunkPlugin({name: 'manifest'}));

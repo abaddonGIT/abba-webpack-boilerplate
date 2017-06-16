@@ -8,6 +8,6 @@ var webpack2 = require('webpack');
 
 gulp.task('webpack', function () {
     return gulp.src('./src/js/index.app.js')
-        .pipe(webpackStream(require('../../webpack.config.js'), webpack2))
+        .pipe(webpackStream(require('../../webpack.config.babel.js'), webpack2))
         .pipe(gulp.dest('./dist'));
 });
