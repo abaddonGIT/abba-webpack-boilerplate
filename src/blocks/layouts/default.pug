@@ -1,1 +1,14 @@
-include ../head/head
+include ../../../node_modules/bemto.pug/bemto
+include ../page/page
+include ../icon/icon
+include ../scripts/scripts
+
+doctype html
+html(lang="ru-RU")
+    include ../head/head
+    +page
+    block content
+        noscript.is-noScript
+            | У вас отключен JavaScript. Сайт может отображаться некорректно. Рекомендуем включить JavaScript.
+    +b.FOOTER.footer
+        +scripts(['./js/vendors/badIe.js','manifest.bundle.js', 'node.bundle.js', 'vendor.bundle.js', 'js.bundle.js'])

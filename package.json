@@ -59,7 +59,8 @@
     "gulp-cheerio": "^0.6.2",
     "gulp-replace": "^0.5.4",
     "gulp-favicons": "^2.2.7",
-    "gulp-util": "^3.0.8"
+    "gulp-util": "^3.0.8",
+    "bemto.pug": "^2.1.0"
   },
   "dependencies": {
     "es6-promise": "^3.1.2",
