@@ -3,6 +3,8 @@ Start project with Gulp and Webpack2
 
 ## Install
     npm install    
+## Fast install
+    yanr install
 ### Start dev server
     npm start
 ### Production build    
@@ -15,3 +17,5 @@ Start project with Gulp and Webpack2
     gulp svg
 #### Minify images
     gulp imagemin
+#### Generate mobile icons
+    gulp favicon

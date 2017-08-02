@@ -1,5 +1,5 @@
 doctype html
-html(lang="ru-RU" manifest="offline.manifest")
+html(lang="ru-RU")
     head
         meta(charset='utf-8')
         meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, minimal-ui')
@@ -17,19 +17,19 @@ html(lang="ru-RU" manifest="offline.manifest")
         meta(name='apple-mobile-web-app-capable' content='yes')
         meta(name='apple-mobile-web-app-status-bar-style' content='black-translucent')
         //Иконки
-        include ../favicon/favicon.html
+        include ../../favicon/favicon.html
 
-        meta(name="description", content="")
-        meta(name="keywords", content="")
-        meta(name="format-detection", content="telephone=no")
         //Метатэги для facebook
-        include ../blocks/head/facebookMeta
+        include facebookMeta
         //Метатеги для twitter
-        include ../blocks/head/twitterMeta
+        include twitterMeta
         //Метатеги для Google plus
-        include ../blocks/head/googleMeta
+        include googleMeta
+        meta(name="format-detection", content="telephone=no")
 
+        block head
+        meta(name="description", content=pageDesc || '')
+        meta(name="keywords", content=pageWords || '')
         link(href="css/style.css", rel="stylesheet", type="text/css")
-        title
-    body
-        include nojs
+        title= pageTitle || ''
+

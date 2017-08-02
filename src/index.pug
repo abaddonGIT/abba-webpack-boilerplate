@@ -1,10 +1,6 @@
-include templates/mixins
-doctype html
-html(lang='en')
-    include templates/head
-    body
-        header.c-header
-        main.c-main
-            +icon('check', '')
-        .c-footer
-        include templates/scripts
+extends blocks/layouts/default
+
+block head
+    - var pageTitle = 'Home page application';
+    - var pageDesc = 'Home page description';
+    - var pageWords = 'First page';
