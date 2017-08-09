@@ -4,7 +4,7 @@ Start project with Gulp and Webpack2
 ## Install
     npm install    
 ## Fast install
-    yanr install
+    yarn install
 ### Start dev server
     npm start
 ### Production build    
