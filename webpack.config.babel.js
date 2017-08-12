@@ -122,7 +122,8 @@ if (!isProd) {
      * docs - https://github.com/kevlened/copy-webpack-plugin
      */
     plugins.push(new CopyWebpackPlugin([
-        {from: sourcePath + '/js/vendors/badIe.js', to: distPath + '/js/vendors/badIe.js'}
+        {from: sourcePath + '/js/vendors/badIe.js', to: distPath + '/js/vendors/badIe.js'},
+        {from: sourcePath + '/favicon/*', to: distPath + '/'}
     ]));
 }
 
@@ -133,7 +134,7 @@ module.exports = {
     entry: {
         js: './js/index.app.js',
         vendor: [
-            // 'es6-promise',
+            'es6-promise',
             // 'isomorphic-fetch',
             // 'babel-polyfill',
             'svg4everybody',

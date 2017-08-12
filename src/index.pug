@@ -6,6 +6,6 @@ block head
     - var pageWords = 'First page';
 block content
     +b.HEADER.header
-        +e.A(href="https://github.com/abaddonGIT").logo
-            +e.IMG.img(src='./images/logo.png', alt="")
+    include blocks/welcome/welcome
+
     +b.MAIN.main
