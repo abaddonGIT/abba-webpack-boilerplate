@@ -1,9 +1,8 @@
 /**
  * Created by Abaddon on 09.04.2017.
  */
-import "../../vendors/owl/owl.carousel.css";
-import "../../vendors/owl/owl.carousel.min";
-import "./style.less";
+import "../../js/vendors/owl/owl.carousel.css";
+import "../../js/vendors/owl/owl.carousel.min";
 
 class Carusel {
     constructor() {

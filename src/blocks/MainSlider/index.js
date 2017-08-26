@@ -1,13 +1,12 @@
 /**
  * Created by Abaddon on 26.02.2017.
  */
-import "../../vendors/flex/flexslider.css";
-require('../../vendors/flex/jquery.flexslider-min');
-import "./style.less";
+import '../../js/vendors/flex/flexslider.css';
+require('../../js/vendors/flex/jquery.flexslider-min');
 
 class MainSlider {
-    constructor() {
-        this.slider = document.querySelector(".js-slider");
+    constructor(slider) {
+        this.slider = slider;
     }
 
     init() {

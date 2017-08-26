@@ -4,8 +4,10 @@ block head
     - var pageTitle = 'Home page application';
     - var pageDesc = 'Home page description';
     - var pageWords = 'First page';
+block header
+    
 block content
-    +b.HEADER.header
-    include blocks/welcome/welcome
-
     +b.MAIN.main
+    include blocks/welcome/welcome
+block footer
+    include blocks/footer/footer

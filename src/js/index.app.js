@@ -9,6 +9,7 @@ import jQuery from 'jquery';
 import './vendors/migrate';
 import isMobile from './vendors/isMobile';
 import App from './App';
+import './vendors/pages';
 
 global.$ = global.jQuery = jQuery;
 $(document).ready(App.start());
