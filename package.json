@@ -12,11 +12,11 @@
   },
   "license": "MIT",
   "scripts": {
-    "gulp": "cross-env NODE_ENV=production && gulp production",
-    "demo": "cross-env NODE_ENV=production DEMO=demo && gulp production",
+    "gulp": "cross-env NODE_ENV=production gulp production",
+    "demo": "cross-env NODE_ENV=production DEMO=demo gulp production",
     "start": "nodemon --watch src/js/vendors/pages.js --exec \"webpack-dev-server --env development\"",
     "prod": "cross-env NODE_ENV=production && npm start",
-    "build": "cross-env NODE_ENV=production && webpack --optimize-minimize -p --profile --display-modules"
+    "build": "cross-env NODE_ENV=production webpack --optimize-minimize -p --profile --display-modules"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

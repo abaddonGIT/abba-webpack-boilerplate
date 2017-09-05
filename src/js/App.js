@@ -26,14 +26,9 @@ class Application {
         }
         //Навигация
         require.ensure([], (require) => {
-            const Nav = require('../blocks/Navigation').default;
+            const Nav = require('../blocks/header/menu/index').default;
             Nav.init();
         });
-
-        //Навигация по макетам
-        // if (process.env.NODE_ENV === 'development' || process.env.DEMO === 'demo') {
-        //     this.pageWidget(['index']);
-        // }
 
         //Отложенная подгрузка изображений
         const Images = document.querySelectorAll('.js-lazy');

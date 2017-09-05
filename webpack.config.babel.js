@@ -4,7 +4,7 @@ const path = require('path');
 const env = require('./environments.config');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
-const isProd = nodeEnv === 'production';
+const isProd = nodeEnv.trim() === 'production';
 
 const sourcePath = env.sourcePath,
     distPath = env.distPath,
@@ -16,6 +16,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 //Подрубаем плагины
 let plugins = [];
+
+console.log(isProd);
+
 if (isProd) {
     plugins.push(new webpack.LoaderOptionsPlugin({
         minimize: true,

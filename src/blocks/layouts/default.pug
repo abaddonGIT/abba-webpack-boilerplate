@@ -7,11 +7,11 @@ doctype html
 html(lang="ru-RU")
     include ../head/head
     +page
-    +b.HEADER.header
-        block header
-    block content
+        +b.HEADER.header
+            block header
+        block content
 
-    +b.footer
-        block footer
-    +b.FOOTER
-        +scripts(['./js/vendors/badIe.js','manifest.bundle.js', 'node.bundle.js', 'vendor.bundle.js', 'js.bundle.js'])
+        +b.footer
+            block footer
+        +b.FOOTER
+            +scripts(['./js/vendors/badIe.js','manifest.bundle.js', 'node.bundle.js', 'vendor.bundle.js', 'js.bundle.js'])
