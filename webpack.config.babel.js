@@ -170,7 +170,15 @@ module.exports = {
                                 plugins: (loader) => [
                                     require('postcss-import')({root: loader.resourcePath}),
                                     require('autoprefixer')(),
-                                    require('cssnano')({zindex: false})
+                                    require('cssnano')({
+                                        zindex: false, 
+                                        reduceIdents: {
+                                            keyframes: false
+                                        },
+                                        discardUnused: {
+                                            keyframes: false
+                                        }
+                                    })
                                 ]
                             }
                         },

@@ -1,5 +1,17 @@
 const path = require('path');
-const PUBLIC_PATH = "/";
+let compilePath = '/';
+
+if (process.env.NODE_ENV === 'production') {
+    compilePath = '/production/';
+}
+
+if (process.env.DEMO === 'demo') {
+    compilePath = '/demo/';
+}
+
+console.warn(compilePath);
+
+const PUBLIC_PATH = compilePath;
 const src = path.join(__dirname, './src');
 const dist = path.join(__dirname, './dist');
 
