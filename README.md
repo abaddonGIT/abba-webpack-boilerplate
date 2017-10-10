@@ -1,5 +1,5 @@
 # WebPackAndGulp
-Start project with Gulp and Webpack2
+Start project with Gulp and Webpack3
 
 ## Install
     npm install    
@@ -8,7 +8,7 @@ Start project with Gulp and Webpack2
 ### Start dev server
     npm start
 ### Production build    
-    npm gulp
+    npm build
 ## Gulp tasks
 
 #### Create sprite image

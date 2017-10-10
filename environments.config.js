@@ -9,8 +9,6 @@ if (process.env.DEMO === 'demo') {
     compilePath = '/demo/';
 }
 
-console.warn(compilePath);
-
 const PUBLIC_PATH = compilePath;
 const src = path.join(__dirname, './src');
 const dist = path.join(__dirname, './dist');

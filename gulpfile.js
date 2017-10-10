@@ -10,5 +10,5 @@ const gulp = require("gulp"),
 requireDir('./gulp/tasks', {recurse: true});
 
 gulp.task('production', function (callback) {
-    runSequence('webpack', 'sprites', 'imagemin', callback);
+    runSequence('sprites', 'imagemin', 'svg', callback);
 });
