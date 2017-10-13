@@ -15,7 +15,7 @@
 @site-sprite: dogs;
 @sLength: length(@site-sprite);
 .sprite-loop (@i) when (@i > 0) {
-  @sp: extract(@site-sprite, @i);
+  @sp: extract(@site-sprite, @i); 
   .sprite--@{sp} {
     .sprite(@@sp);
   }

@@ -17,33 +17,18 @@ plugins.push(new webpack.LoaderOptionsPlugin({
 
 plugins.push(new UglifyJSPlugin({
   uglifyOptions: {
-    ie8: false,
-  },
-  compress: {
-    warnings: false,
-    screw_ie8: true,
-    conditionals: true,
-    unused: true,
-    comparisons: true,
-    sequences: true,
-    dead_code: true,
-    evaluate: true,
-    join_vars: true,
-    if_return: true
-  },
-  output: {
-    comments: false
-  },
-  parallel: {
-    cache: true,
-    workers: 2,
-    ecma: 8,
+    compress: {
+      warnings: false,
+    },
+    output: {
+      comments: false
+    },
   }
 }));
 
 plugins.push(new CopyWebpackPlugin([
   { from: sourcePath + '/js/vendors/badIe.js', to: distPath + '/js/vendors/badIe.js' },
-  { from: sourcePath + '/images/sprite.svg', to: distPath + '/images/sprite.svg'},
+  { from: sourcePath + '/images/sprite.svg', to: distPath + '/images/sprite.svg' },
   { from: sourcePath + '/favicon/*', to: distPath + '/' }
 ]));
 
