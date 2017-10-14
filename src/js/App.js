@@ -12,10 +12,10 @@ class Application {
    * Run application function
    */
   start() {
-      SvgEvery();
-      if (isMobile.any) {
-        this.body.classList.add('is-mobile');
-      }
+    SvgEvery();
+    if (isMobile.any) {
+      this.body.classList.add('is-mobile');
+    }
 
     // Анимация для страницы
     if (document.querySelector('.has-anim')) {

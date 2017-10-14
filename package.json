@@ -22,7 +22,7 @@
     "lint:js": "npm run lint:eslint --fix"
   },
   "lint-staged": {
-    "*.js": "lint"
+    "src/*.js": "lint:eslint"
   },
   "pre-commit": "lint:staged",
   "devDependencies": {
