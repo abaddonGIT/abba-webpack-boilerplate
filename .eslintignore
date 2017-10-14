@@ -1,0 +1,6 @@
+dist/
+gulp/
+src/js/vendors/
+webpack.dev.babel.js
+webpack.prod.babel.js
+webpack.babel.js

@@ -36,6 +36,9 @@ const config = {
         cssPath: path.join(src + '/css'),
         padding: 5
     },
+    block: {
+      src: path.join(src, '/blocks'),
+    },
     svg: {
         src: path.join(src, '/images/svg/*.svg')
     }
