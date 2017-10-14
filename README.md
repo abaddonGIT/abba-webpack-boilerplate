@@ -9,6 +9,9 @@ Start project with Gulp and Webpack3
     npm start
 ### Production build    
     npm build
+### Start eslint
+    npm run lint
+
 ## Gulp tasks
 
 #### Create sprite image
