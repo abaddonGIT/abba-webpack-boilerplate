@@ -3,18 +3,21 @@
  */
 /* global SvgEvery, isMobile */
 import linkSupportsPreload from './components/loadCSS';
+
 class Application {
-  constructor() { 
+  constructor() {
     this.body = document.querySelector('body');
   }
 
-  /** 
+  /**
    * Run application function
    */
   start() {
-    if (!linkSupportsPreload(document.createElement("link").relList, 'preload')) {
+    if (!linkSupportsPreload(document.createElement('link').relList, 'preload')) {
       require.ensure([], (require) => {
-        const loadCSS = require('fg-loadcss').loadCSS;
+        const {
+          loadCSS,
+        } = require('fg-loadcss');
         loadCSS('css/style.css');
       });
     }
