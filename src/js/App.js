@@ -2,16 +2,23 @@
  * Created by abaddon on 26.05.2017.
  */
 /* global SvgEvery, isMobile */
-
+import linkSupportsPreload from './components/loadCSS';
 class Application {
-  constructor() {
+  constructor() { 
     this.body = document.querySelector('body');
   }
 
-  /**
+  /** 
    * Run application function
    */
   start() {
+    if (!linkSupportsPreload(document.createElement("link").relList, 'preload')) {
+      require.ensure([], (require) => {
+        const loadCSS = require('fg-loadcss').loadCSS;
+        loadCSS('css/style.css');
+      });
+    }
+
     SvgEvery();
     if (isMobile.any) {
       this.body.classList.add('is-mobile');
@@ -22,6 +29,7 @@ class Application {
       require.ensure([], (require) => {
         const AOS = require('aos');
         AOS.init({
+          disable: 'mobile',
           offset: 200,
           duration: 600,
           easing: 'ease-in-sine',

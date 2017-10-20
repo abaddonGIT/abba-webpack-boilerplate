@@ -4,7 +4,7 @@
 var gulp = require("gulp"),
     fs = require("fs"),
     file = require('gulp-file'),
-    paths = require('../../environments.config').fonts;
+    paths = require('../../config/environments.config').fonts;
 
 
 gulp.task('fonts', function () {

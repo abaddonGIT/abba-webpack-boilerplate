@@ -6,12 +6,12 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 if (process.env.DEMO === 'demo') {
-    compilePath = '/demo/';
+    compilePath = '/test/';
 }
 
 const PUBLIC_PATH = compilePath;
-const src = path.join(__dirname, './src');
-const dist = path.join(__dirname, './dist');
+const src = path.join(process.cwd(), 'src');
+const dist = path.join(process.cwd(), 'dist');
 
 
 const config = {

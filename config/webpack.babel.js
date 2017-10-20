@@ -11,7 +11,10 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 plugins.push(new webpack.optimize.ModuleConcatenationPlugin());
-plugins.push(new ExtractTextPlugin({ filename: 'css/style.css', allChunks: true }));
+plugins.push(new ExtractTextPlugin({
+  filename: 'css/style.css',
+  allChunks: true
+}));
 
 plugins.push(new webpack.optimize.CommonsChunkPlugin({
   name: 'vendor',
@@ -27,7 +30,10 @@ plugins.push(new webpack.optimize.CommonsChunkPlugin({
   }
 }));
 
-plugins.push(new webpack.optimize.CommonsChunkPlugin({ name: 'manifest' }));
+plugins.push(new webpack.optimize.CommonsChunkPlugin({
+  name: 'manifest',
+  minChunks: Infinity,
+}));
 
 plugins.push(new webpack.DefinePlugin({
   'process.env': {
@@ -70,13 +76,11 @@ module.exports = (options) => ({
     filename: '[name].bundle.js',
   }, options.output),
   module: {
-    rules: [
-      {
+    rules: [{
         test: /(\.css|\.less)$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: [
-            {
+          use: [{
               loader: 'css-loader',
               options: {
                 importLoaders: 1,
@@ -87,7 +91,9 @@ module.exports = (options) => ({
               loader: 'postcss-loader',
               options: {
                 plugins: (loader) => [
-                  require('postcss-import')({ root: loader.resourcePath }),
+                  require('postcss-import')({
+                    root: loader.resourcePath
+                  }),
                   require('autoprefixer')(),
                   require('cssnano')({
                     zindex: false,
@@ -108,15 +114,32 @@ module.exports = (options) => ({
         })
       },
       {
-        test: /\.(png|jpe?g|gif)(\?\S*)?$/,
-        exclude: /node_modules/,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            limit: '10000',
-            name: 'images/[name].[ext]'
+        test: /\.(jpg|png|gif)$/,
+        loaders: [{
+            loader: 'file-loader',
+            options: {
+              name: 'images/[name].[ext]'
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            query: {
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
+              mozjpeg: {
+                progressive: true
+              },
+              gifsicle: {
+                interlaced: true
+              },
+              optipng: {
+                optimizationLevel: 7
+              }
+            },
           }
-        }]
+        ],
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg)(\?\S*)?$/,
@@ -132,20 +155,17 @@ module.exports = (options) => ({
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              plugins: ['transform-runtime'],
-              presets: ['es2015', 'stage-0']
-            }
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            plugins: ['transform-runtime'],
+            presets: ['es2015', 'stage-0']
           }
-        ]
+        }]
       },
       {
         test: /\.(pug)$/,
-        use: [
-          {
+        use: [{
             loader: 'html-loader'
           },
           {
@@ -159,8 +179,8 @@ module.exports = (options) => ({
   resolve: {
     extensions: ['.js'],
     modules: [
-      path.resolve(__dirname, 'node_modules'),
-      path.resolve(__dirname, './src')
+      'node_modules',
+      'src'
     ]
   },
   devServer: options.devServer

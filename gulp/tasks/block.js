@@ -1,6 +1,6 @@
 const fs = require('fs');
 const gulp = require('gulp');
-const config = require('../../environments.config').block;
+const config = require('../../config/environments.config').block;
 
 gulp.task('block', function (fn) {
   const folderName = process.argv[4];

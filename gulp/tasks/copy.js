@@ -4,7 +4,7 @@
  */
 
 var gulp = require('gulp'),
-    paths = require('../../environments.config');
+    paths = require('../../config/environments.config');
 
 gulp.task("copy", function () {
     gulp.src(paths.sourcePath + "/*.html").pipe(gulp.dest(paths.distPath));

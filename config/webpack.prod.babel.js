@@ -2,6 +2,7 @@
 const webpack = require('webpack');
 const env = require('./environments.config');
 const sourcePath = env.sourcePath;
+const path = require('path');
 const distPath = env.distPath;
 const publicPath = env.publicPath;
 //Плагины
@@ -26,15 +27,23 @@ plugins.push(new UglifyJSPlugin({
   }
 }));
 
-plugins.push(new CopyWebpackPlugin([
-  { from: sourcePath + '/js/vendors/badIe.js', to: distPath + '/js/vendors/badIe.js' },
-  { from: sourcePath + '/images/sprite.svg', to: distPath + '/images/sprite.svg' },
-  { from: sourcePath + '/favicon/*', to: distPath + '/' }
+plugins.push(new CopyWebpackPlugin([{
+    from: sourcePath + '/js/vendors/badIe.js',
+    to: distPath + '/js/vendors/badIe.js'
+  },
+  {
+    from: sourcePath + '/images/sprite.svg',
+    to: distPath + '/images/sprite.svg'
+  },
+  {
+    from: sourcePath + '/favicon/*',
+    to: distPath + '/'
+  }
 ]));
 
 module.exports = require('./webpack.babel')({
   entry: {
-    js: './js/index.app.js',
+    js: path.join(process.cwd(), 'src/js/index.app.js'),
     vendor: [
       'es6-promise',
       'svg4everybody',

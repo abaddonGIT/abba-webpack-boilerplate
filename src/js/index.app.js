@@ -14,3 +14,4 @@ import './vendors/pages';
 global.$ = jQuery;
 global.jQuery = jQuery;
 $(document).ready(App.start());
+ 

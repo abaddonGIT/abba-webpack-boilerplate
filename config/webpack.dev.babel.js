@@ -20,7 +20,7 @@ plugins.push(new CircularDependencyPlugin({
 
 module.exports = require('./webpack.babel')({
   entry: {
-    js: './js/index.app.js',
+    js: path.join(process.cwd(), 'src/js/index.app.js'),
     vendor: [
       'es6-promise',
       'svg4everybody',
@@ -34,7 +34,7 @@ module.exports = require('./webpack.babel')({
   devServer: {
     contentBase: path.join(process.cwd(), 'src'),
     historyApiFallback: true,
-    port: PORT || 3002,
+    port: PORT || 3003,
     host: '0.0.0.0',
     compress: false,
     inline: true,

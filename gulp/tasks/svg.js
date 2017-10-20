@@ -7,7 +7,7 @@ const gulp = require('gulp'),
     svgmin = require('gulp-svgmin'),
     cheerio = require('gulp-cheerio'),
     replace = require('gulp-replace'),
-    config = require('../../environments.config').svg;
+    config = require('../../config/environments.config').svg;
 
 gulp.task('svg', function () {
     return gulp.src(config.src)

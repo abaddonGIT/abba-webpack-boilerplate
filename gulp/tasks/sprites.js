@@ -3,7 +3,7 @@
  */
 var gulp = require('gulp'),
     spritesmith = require('gulp.spritesmith'),
-    paths = require('../../environments.config').sprites;
+    paths = require('../../config/environments.config').sprites;
 
 gulp.task('sprites', function () {
     var sprite = gulp.src(paths.src)
