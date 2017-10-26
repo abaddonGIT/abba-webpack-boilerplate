@@ -2,8 +2,13 @@
  * Created by abaddon on 26.05.2017.
  */
 /* global SvgEvery, isMobile */
-import linkSupportsPreload from './components/loadCSS';
-
+import {
+  onloadCSS,
+  afterLoadCSS
+} from './components/loadCSS';
+const {
+  loadCSS,
+} = require('fg-loadcss');
 class Application {
   constructor() {
     this.body = document.querySelector('body');
@@ -13,32 +18,27 @@ class Application {
    * Run application function
    */
   start() {
-    if (!linkSupportsPreload(document.createElement('link').relList, 'preload')) {
-      require.ensure([], (require) => {
-        const {
-          loadCSS,
-        } = require('fg-loadcss');
-        loadCSS('css/style.css');
-      });
-    }
+    const css = loadCSS('css/style.css');
+    onloadCSS(css, () => {
+      // Анимация для страницы
+      if (document.querySelector('.has-anim')) {
+        require.ensure([], (require) => {
+          const AOS = require('aos');
+          AOS.init({
+            disable: 'mobile',
+            offset: 200,
+            duration: 600,
+            easing: 'ease-in-sine',
+            delay: 100,
+          });
+        });
+      }
+      afterLoadCSS();
+    });
 
     SvgEvery();
     if (isMobile.any) {
       this.body.classList.add('is-mobile');
-    }
-
-    // Анимация для страницы
-    if (document.querySelector('.has-anim')) {
-      require.ensure([], (require) => {
-        const AOS = require('aos');
-        AOS.init({
-          disable: 'mobile',
-          offset: 200,
-          duration: 600,
-          easing: 'ease-in-sine',
-          delay: 100,
-        });
-      });
     }
     // Навигация
     require.ensure([], (require) => {
