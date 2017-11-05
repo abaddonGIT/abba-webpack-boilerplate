@@ -15,7 +15,7 @@
     "demo": "cross-env NODE_ENV=production DEMO=demo npm run build",
     "start": "nodemon --watch src/js/vendors/pages.js --exec npm run dev",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack.dev.babel.js --env development",
-    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.babel.js --optimize-minimize -p --profile --display-modules && gulp production",
+    "build": "cross-env NODE_ENV=production gulp production && cross-env NODE_ENV=production webpack --config ./config/webpack.prod.babel.js --optimize-minimize -p --profile --display-modules",
     "lint:staged": "lint-staged",
     "lint:eslint": "eslint src/**/*.js",
     "lint": "npm run lint:js",
@@ -89,7 +89,8 @@
     "isomorphic-fetch": "2.2.1",
     "jquery": "3.2.1",
     "normalize.css": "7.0.0",
-    "svg4everybody": "2.1.9"
+    "svg4everybody": "2.1.9",
+    "inputmask": "^3.3.10"
   },
   "babel": {
     "presets": [

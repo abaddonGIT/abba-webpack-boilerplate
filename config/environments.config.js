@@ -1,12 +1,14 @@
 const path = require('path');
-let compilePath = '/';
 
-if (process.env.NODE_ENV === 'production') {
-    compilePath = '/production/';
-}
-
+let compilePath;
 if (process.env.DEMO === 'demo') {
-    compilePath = '/test/';
+  compilePath = '/demo/';
+} else {
+  if (process.env.NODE_ENV === 'production') {
+    compilePath = '/assets/';
+  } else {
+    compilePath = '/';
+  }
 }
 
 const PUBLIC_PATH = compilePath;

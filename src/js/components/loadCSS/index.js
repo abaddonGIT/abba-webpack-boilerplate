@@ -11,7 +11,7 @@ export const linkSupportsPreload = function (tokenList, token) {
 export default linkSupportsPreload;
 
 export const onloadCSS = function (ss, callback) {
-  var called;
+  let called;
 
   function newcb() {
     if (!called && callback) {
@@ -19,17 +19,18 @@ export const onloadCSS = function (ss, callback) {
       callback.call(ss);
     }
   }
+
   if (ss.addEventListener) {
-    ss.addEventListener("load", newcb);
+    ss.addEventListener('load', newcb);
   }
   if (ss.attachEvent) {
-    ss.attachEvent("onload", newcb);
+    ss.attachEvent('onload', newcb);
   }
 
-  if ("isApplicationInstalled" in navigator && "onloadcssdefined" in ss) {
+  if ('isApplicationInstalled' in navigator && 'onloadcssdefined' in ss) {
     ss.onloadcssdefined(newcb);
   }
-}
+};
 
 export const afterLoadCSS = function () {
   let css = `.loader {
@@ -50,4 +51,4 @@ export const afterLoadCSS = function () {
     css = null;
     style = null;
   }, 300);
-}
+};

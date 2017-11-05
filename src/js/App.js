@@ -4,11 +4,13 @@
 /* global SvgEvery, isMobile */
 import {
   onloadCSS,
-  afterLoadCSS
+  afterLoadCSS,
 } from './components/loadCSS';
+
 const {
   loadCSS,
 } = require('fg-loadcss');
+
 class Application {
   constructor() {
     this.body = document.querySelector('body');
@@ -52,6 +54,14 @@ class Application {
       require.ensure([], (require) => {
         const Lazy = require('./components/LazyLoad').default;
         Lazy.init();
+      });
+    }
+    //Маска для телефона
+    const tel = document.querySelector('.js-tel');
+    if (tel) {
+      require.ensure([], (require) => {
+        const Inputmask = require('inputmask');
+        Inputmask({"mask": "(999) 999-9999"}).mask('.js-tel');
       });
     }
 
