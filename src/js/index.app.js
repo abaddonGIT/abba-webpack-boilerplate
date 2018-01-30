@@ -13,4 +13,7 @@ import './vendors/pages';
 
 global.$ = jQuery;
 global.jQuery = jQuery;
+global.isMobile = isMobile;
+// Ie fix
+global.Promise = require('es6-promise').Promise;
 $(document).ready(App.start());

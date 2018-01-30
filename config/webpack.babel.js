@@ -77,50 +77,50 @@ module.exports = (options) => ({
   }, options.output),
   module: {
     rules: [{
-        test: /(\.css|\.less)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: [{
-              loader: 'css-loader',
-              options: {
-                importLoaders: 1,
-                minimize: true
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                plugins: (loader) => [
-                  require('postcss-import')({
-                    root: loader.resourcePath
-                  }),
-                  require('autoprefixer')(),
-                  require('cssnano')({
-                    zindex: false,
-                    reduceIdents: {
-                      keyframes: false
-                    },
-                    discardUnused: {
-                      keyframes: false
-                    }
-                  })
-                ]
-              }
-            },
-            {
-              loader: 'less-loader'
+      test: /(\.css|\.less)$/,
+      use: ExtractTextPlugin.extract({
+        fallback: "style-loader",
+        use: [{
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            minimize: true
+          }
+        },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: (loader) => [
+                require('postcss-import')({
+                  root: loader.resourcePath
+                }),
+                require('autoprefixer')(),
+                require('cssnano')({
+                  zindex: false,
+                  reduceIdents: {
+                    keyframes: false
+                  },
+                  discardUnused: {
+                    keyframes: false
+                  }
+                })
+              ]
             }
-          ]
-        })
-      },
+          },
+          {
+            loader: 'less-loader'
+          }
+        ]
+      })
+    },
       {
         test: /\.(jpg|png|gif)$/,
         loaders: [{
-            loader: 'file-loader',
-            options: {
-              name: 'images/[name].[ext]'
-            }
-          },
+          loader: 'file-loader',
+          options: {
+            name: 'images/[name].[ext]'
+          }
+        },
           {
             loader: 'image-webpack-loader',
             query: {
@@ -166,8 +166,8 @@ module.exports = (options) => ({
       {
         test: /\.(pug)$/,
         use: [{
-            loader: 'html-loader'
-          },
+          loader: 'html-loader'
+        },
           {
             loader: 'pug-html-loader'
           }
