@@ -2,58 +2,79 @@
 * Стандартные примеси для базовых свойств
 */
 
-.is-left {
+.b-l {
   float: left;
 }
 
-.is-right {
+.b-r {
   float: right;
 }
 
-.is-block {
+.d-b {
   display: block;
 }
 
-.is-none {
+.d-n {
   display: none;
 }
 
-.is-b-inline {
+.d-b-i {
   display: inline-block;
 }
 
-.t-center {
+.t-c {
   text-align: center;
 }
 
-.t-left {
+.t-l {
   text-align: left;
 }
 
-.t-right {
+.t-r {
   text-align: right;
 }
 
-.t-justify {
+.t-j {
   text-align: justify;
 }
 
-.d-none {
+.t-d-n {
   text-decoration: none;
 }
 
-.d-line {
+.t-d-u {
   text-decoration: underline;
 }
 
-.d-cross {
+.t-d-c {
   text-decoration: line-through;
+}
+
+.p-a {
+  position: absolute;
+}
+
+.p-r {
+  position: relative;
+}
+
+.p-f {
+  position: fixed;
+}
+
+.d-f {
+  display: flex;
+}
+
+.m-a {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .res {
   width: 100%;
   height: auto;
-  .is-block;
+  .d-b;
 }
 
 /***************************
@@ -75,10 +96,9 @@ img {
 
 a {
   &:hover {
-    .d-none;
+    .t-d-n;
   }
 }
-
 
 .clearfix() {
   &:before,

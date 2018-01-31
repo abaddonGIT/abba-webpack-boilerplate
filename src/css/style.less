@@ -15,12 +15,13 @@
 @site-sprite: dogs;
 @sLength: length(@site-sprite);
 .sprite-loop (@i) when (@i > 0) {
-  @sp: extract(@site-sprite, @i); 
+  @sp: extract(@site-sprite, @i);
   .sprite--@{sp} {
     .sprite(@@sp);
   }
   .sprite-loop(@i - 1);
-} 
+}
+
 /*
 * Bad ie styles
 */
@@ -35,7 +36,7 @@
     top: 48%;
     width: 100%;
     color: @white;
-    .t-center();
+    .t-c;
   }
 }
 
@@ -59,15 +60,8 @@ body, html {
 @import "../blocks/welcome/welcome.less";
 
 /*-------------------------ШАПКА САЙТА-------------------*/
-.header {
-  &__logo {
 
-  }
-
-  &__img {
-    .set-size(150px);
-  }
-}
+@import "../blocks/header/style.less";
 
 /*------------------------ОБЛАСТЬ КОНТЕНТА--------------------*/
 
@@ -77,9 +71,7 @@ body, html {
 
 /*------------------------ПОДВАЛ----------------------*/
 
-.footer {
-
-}
+@import "../blocks/footer/style.less";
 
 .icon {
   color: red;

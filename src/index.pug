@@ -5,9 +5,9 @@ block head
     - var pageDesc = 'Home page description';
     - var pageWords = 'First page';
 block header
-    
+    include blocks/header/index
 block content
     +b.MAIN.main.has-anim
-    include blocks/welcome/welcome
+    include blocks/welcome/index
 block footer
-    include blocks/footer/footer
+    include blocks/footer/index
