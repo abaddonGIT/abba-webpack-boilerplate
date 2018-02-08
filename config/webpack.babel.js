@@ -25,7 +25,7 @@ plugins.push(new webpack.optimize.CommonsChunkPlugin({
 plugins.push(new webpack.optimize.CommonsChunkPlugin({
   name: 'node',
   minChunks: function (module) {
-    var context = module.context;
+    const context = module.context;
     return context && context.indexOf('node_modules') >= 0;
   }
 }));
@@ -38,6 +38,7 @@ plugins.push(new webpack.optimize.CommonsChunkPlugin({
 plugins.push(new webpack.DefinePlugin({
   'process.env': {
     NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+    DEMO_ENV: JSON.stringify(process.env.DEMO_ENV)
   }
 }));
 plugins.push(new webpack.NamedModulesPlugin());

@@ -2,6 +2,7 @@
  * Created by abaddon on 26.05.2017.
  */
 /* global SvgEvery, isMobile */
+import config from '../../config/environments.config';
 import {
   onloadCSS,
   afterLoadCSS,
@@ -20,7 +21,7 @@ class Application {
    * Run application function
    */
   start() {
-    const css = loadCSS('css/style.css');
+    const css = loadCSS(process.env.DEMO_ENV === 'production' ? config.productionStyles : 'css/style.css');
     onloadCSS(css, () => {
       // Анимация для страницы
       if (document.querySelector('.has-anim')) {
@@ -66,6 +67,7 @@ class Application {
     }
 
     Application.initFancybox();
+    Application.pagesMenu();
   }
 
   /**
@@ -75,11 +77,32 @@ class Application {
     const fancy = document.querySelectorAll('.js-fancy') || [];
     if (fancy.length) {
       require.ensure([], (require) => {
-        require('./vendors/fancybox/jquery.fancybox.pack');
+        require('./vendors/fancybox/jquery.fancybox.js');
         require('./vendors/fancybox/jquery.fancybox.css');
         $('.js-fancy').fancybox();
       });
     }
+  }
+
+  /**
+   * Подгрузка дев меню для отладки
+   */
+  static pagesMenu() {
+    if (process.env.NODE_ENV === 'development') {
+      Application.loadPagesMenuJs();
+    } else if (process.env.DEMO_ENV === 'demo') {
+      Application.loadPagesMenuJs();
+    }
+  }
+
+  /**
+   * Подгрузка скриптов для дев
+   */
+  static loadPagesMenuJs() {
+    require.ensure([], (require) => {
+      const pageWidget = require('./vendors/pages').default;
+      pageWidget(['index']);
+    });
   }
 }
 

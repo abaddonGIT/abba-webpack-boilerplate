@@ -2,10 +2,10 @@ const path = require('path');
 
 let compilePath;
 if (process.env.DEMO === 'demo') {
-  compilePath = '/demo/';
+  compilePath = '/webpack/';
 } else {
   if (process.env.NODE_ENV === 'production') {
-    compilePath = '/assets/';
+    compilePath = '/webpack/';
   } else {
     compilePath = '/';
   }
@@ -43,7 +43,8 @@ const config = {
   },
   svg: {
     src: path.join(src, '/images/svg/*.svg')
-  }
+  },
+  productionStyles: compilePath
 };
 
 module.exports = config;

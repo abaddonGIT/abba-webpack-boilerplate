@@ -2,16 +2,11 @@
  * Created by abaddon on 26.08.2017.
  * Спикок страниц для верстки
  */
-//Навигация по макетам
-if (process.env.NODE_ENV === 'development' || process.env.DEMO === 'demo') {
-  pageWidget(['index']);
-}
-
 /**
  * Создание навигации по статическим страницам
  * @param pages
  */
-function pageWidget(pages) {
+export default function (pages) {
   let widgetWrap = $('<div class="widget_wrap"><ul class="widget_list"></ul></div>');
   widgetWrap.prependTo("body");
   for (let i = 0; i < pages.length; i++) {
