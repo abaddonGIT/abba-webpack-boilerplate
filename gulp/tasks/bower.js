@@ -1,13 +1,13 @@
 /**
  * Created by abaddon on 08.02.2018.
  */
-const gulp = require('gulp'),
-  del = require('del'),
-  fs = require('fs'),
-  projectPath = process.cwd(),
-  bowerFolder = "bower_components",
-  bowerJson = fs.readFileSync('./bower.json', 'utf8'),
-  exec = require('child_process').exec;
+const gulp = require('gulp');
+const del = require('del');
+const fs = require('fs');
+const projectPath = process.cwd();
+const bowerFolder = "bower_components";
+const bowerJson = fs.readFileSync('./bower.json', 'utf8');
+const exec = require('child_process').exec;
 
 gulp.task('bower', function () {
   exec('bower install', { cwd: projectPath }, function (err, stdout, stderr) {

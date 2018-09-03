@@ -1,13 +1,14 @@
-extends blocks/layouts/default
+extends chunks/layouts/default
 
 block head
     - var pageTitle = 'Home page application';
     - var pageDesc = 'Home page description';
     - var pageWords = 'First page';
 block header
-    include blocks/header/index
+    include chunks/header/index
 block content
     +b.MAIN.main.has-anim
-    include blocks/welcome/index
+        include chunks/welcome/index
+        go-up(data-offset="10")
 block footer
-    include blocks/footer/index
+    include chunks/footer/index

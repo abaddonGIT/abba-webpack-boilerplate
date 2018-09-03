@@ -1,0 +1,77 @@
+@import "../../node_modules/normalize.css/normalize.css";
+@import "variables";
+@import "utils";
+@import "atomic";
+@import "svg-icons";
+@import "grid/bootstrap-grid.css";
+@import "awesome/fontawesome-all.css";
+@import "sprites";
+
+/*************************
+* Базовые установки
+ ************************/
+html, body {
+  padding: 0;
+  margin: 0;
+  @include set-size(100%);
+}
+
+html {
+  font-size: $default-font-px-size;
+  font-family: $default-font-family;
+  color: $default-font-color;
+  body {
+    font-size: $default-font-rem-size;
+    -webkit-text-size-adjust: none;
+  }
+}
+
+a {
+  color: $default-link-color;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+a, label {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input[type=text],
+input[type=submit],
+textarea {
+  -webkit-appearance: none;
+}
+
+* {
+  &:not([class*=container]) {
+    box-sizing: border-box;
+  }
+}
+
+/*********************
+* Шапка
+ *********************/
+.header {
+
+}
+
+/*****************************
+* Область основного контента
+ ***************************/
+main {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/***************************
+* Повал
+ **************************/
+
+.footer {
+
+}
+
+.loader {
+  display: none;
+}

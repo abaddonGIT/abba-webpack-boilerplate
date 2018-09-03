@@ -1,36 +1,68 @@
-"use string";
+/**
+ * Created by abaddon on 02.09.2018.
+ */
+const { PATHS, PORT } = require('./constants');
 const webpack = require('webpack');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
-const env = require('./environments.config');
-let plugins = [];
-const { PORT } = process.env;
-//Поагины
-const CircularDependencyPlugin = require('circular-dependency-plugin');
-
-plugins.push(
-  new webpack.HotModuleReplacementPlugin()
-);
-
-plugins.push(new webpack.NoEmitOnErrorsPlugin());
-
-plugins.push(new CircularDependencyPlugin({
-  exclude: /a\.js|node_modules/,
-  failOnError: false,
-}));
 
 module.exports = require('./webpack.babel')({
   entry: {
-    js: path.join(process.cwd(), 'src/js/index.app.js'),
-    vendor: [
-      'es6-promise',
-      'svg4everybody',
-      'jquery'
-    ]
+    site: `${PATHS.src}/js/index.js`,
   },
   output: {
-    publicPath: env.publicPath
+    publicPath: '/'
   },
-  plugins: plugins,
+  mode: 'development',
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  rules: [
+    // Стили
+    {
+      test: /(\.css|\.scss)$/,
+      use: [
+        {
+          loader: 'style-loader'
+        },
+        MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            sourceMap: true,
+          }
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: true,
+            plugins: (loader) => [
+              require('postcss-import')({
+                root: loader.resourcePath
+              }),
+              require('autoprefixer')(),
+              require('cssnano')({
+                zindex: false,
+                reduceIdents: {
+                  keyframes: false
+                },
+                discardUnused: {
+                  keyframes: false
+                }
+              })
+            ]
+          }
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true
+          }
+        },
+      ]
+    },
+  ],
   devServer: {
     contentBase: path.join(process.cwd(), 'src'),
     historyApiFallback: true,
@@ -53,5 +85,5 @@ module.exports = require('./webpack.babel')({
         green: '\u001b[32m',
       },
     },
-  },
+  }
 });

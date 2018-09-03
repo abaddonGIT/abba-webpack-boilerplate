@@ -4,17 +4,32 @@
   "dependencies": {
     "jquery": "*",
     "fancybox": "latest",
-    "bootstrap-grid-css": "latest",
+    "bootstrap4-grid-only": "latest",
     "animate.css": "latest",
     "jquery.maskedinput": "latest",
     "jquery-selectric": "latest",
     "owl.carousel": "latest",
     "hover": "latest",
     "flexslider": "latest",
+    "components-font-awesome": "latest",
     "nouislider": "latest",
-    "air-datepicker": "latest"
+    "air-datepicker": "latest",
+    "webcomponentsjs": "latest"
   },
   "overrides": {
+    "components-font-awesome": {
+      "src/css/awesome": [
+        "./css/fontawesome-all.css"
+      ],
+      "src/css/webfonts": [
+        "./webfonts/*"
+      ]
+    },
+    "bootstrap4-grid-only": {
+      "src/css/grid": [
+        "./dist/css/bootstrap-grid.css"
+      ]
+    },
     "air-datepicker": {
       "src/js/vendors/air-datepicker": [
         "./dist/**"
@@ -29,11 +44,6 @@
       "src/js/vendors/fancybox": [
         "./dist/jquery.fancybox.css",
         "./dist/jquery.fancybox.js"
-      ]
-    },
-    "bootstrap-grid-css": {
-      "src/css/grid": [
-        "./grid.css"
       ]
     },
     "animate.css": {
