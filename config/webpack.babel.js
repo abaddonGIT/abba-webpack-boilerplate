@@ -18,10 +18,6 @@ plugins.push(
     filename: 'css/style.css',
   }),
   new webpack.ProvidePlugin({
-    '$': 'jquery',
-    'jQuery': "jquery",
-    'window.jQuery': 'jquery',
-    'window.$': 'jquery',
     'SvgEvery': 'svg4everybody',
   })
 );
@@ -101,7 +97,7 @@ module.exports = (options) => ({
     ].concat(options.rules)
   },
   resolve: {
-    modules: [path.resolve('./src'), 'node_modules', 'images'],
+    modules: [path.resolve('./src'), 'node_modules', 'images', 'webfonts'],
   },
   devServer: options.devServer || {}
 });

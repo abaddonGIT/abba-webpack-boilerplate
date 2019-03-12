@@ -34,6 +34,9 @@ module.exports = require('./webpack.babel')({
           }
         },
         {
+          loader: 'resolve-url-loader',
+        },
+        {
           loader: 'postcss-loader',
           options: {
             sourceMap: true,
@@ -66,7 +69,7 @@ module.exports = require('./webpack.babel')({
   devServer: {
     contentBase: path.join(process.cwd(), 'src'),
     historyApiFallback: true,
-    port: PORT || 3003,
+    port: PORT || 3004,
     host: '0.0.0.0',
     compress: false,
     inline: true,

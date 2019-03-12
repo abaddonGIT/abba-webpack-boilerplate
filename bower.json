@@ -43,7 +43,8 @@
     "fancybox": {
       "src/js/vendors/fancybox": [
         "./dist/jquery.fancybox.css",
-        "./dist/jquery.fancybox.js"
+        "./dist/jquery.fancybox.js",
+        "./dist/jquery.fancybox.min.js"
       ]
     },
     "animate.css": {
@@ -66,6 +67,7 @@
     "owl.carousel": {
       "src/js/vendors/owl": [
         "./dist/owl.carousel.js",
+        "./dist/owl.carousel.min.js",
         "./dist/assets/*"
       ]
     },

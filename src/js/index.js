@@ -2,6 +2,7 @@
  * Created by abaddon on 01.09.2018.
  */
 require('./web-components/GoUp');
+require('./web-components/OwlCarousel');
 import '../css/index.scss';
 
 class Site {

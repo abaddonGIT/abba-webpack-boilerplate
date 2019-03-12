@@ -72,7 +72,8 @@
   },
   "dependencies": {
     "normalize.css": "^8.0.0",
-    "jquery": "^3.3.1",
-    "svg4everybody": "^2.1.9"
+    "resolve-url-loader": "^3.0.0",
+    "svg4everybody": "^2.1.9",
+    "webfontloader": "^1.6.28"
   }
 }
