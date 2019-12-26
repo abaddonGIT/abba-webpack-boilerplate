@@ -2,7 +2,7 @@
  * Created by Abaddon on 09.04.2017.
  */
 import '../../js/vendors/owl/owl.carousel.css';
-import '../../js/vendors/owl/owl.carousel.min';
+import '../../js/vendors/owl/owl.carousel';
 
 class Carusel {
   constructor() {

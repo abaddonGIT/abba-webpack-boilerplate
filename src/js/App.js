@@ -57,12 +57,12 @@ class Application {
         Lazy.init();
       });
     }
-    //Маска для телефона
+    // Маска для телефона
     const tel = document.querySelector('.js-tel');
     if (tel) {
       require.ensure([], (require) => {
         const Inputmask = require('inputmask');
-        Inputmask({ "mask": "(999) 999-9999" }).mask('.js-tel');
+        Inputmask({ mask: '(999) 999-9999' }).mask('.js-tel');
       });
     }
 

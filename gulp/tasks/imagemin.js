@@ -11,22 +11,15 @@ var gulp = require('gulp'),
 gulp.task('imagemin', function () {
   gulp.src(paths.src)
     .pipe(imagemin([
-      imagemin.gifsicle({
-        interlaced: true
-      }),
-      imageminJpegRecompress({
-        progressive: true,
-        max: 80,
-        min: 70
-      }),
-      imageminPngquant({
-        quality: '75-85'
-      }),
+      imagemin.gifsicle({interlaced: true}),
+      imagemin.jpegtran({progressive: true}),
+      imagemin.optipng({optimizationLevel: 5}),
       imagemin.svgo({
-        plugins: [{
-          removeViewBox: false
-        }]
-      })
+        plugins: [
+          {removeViewBox: false},
+          {cleanupIDs: false}
+        ]
+      }),
     ]))
     .pipe(gulp.dest(paths.dist));
 });

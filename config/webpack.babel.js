@@ -85,7 +85,6 @@ module.exports = (options) => ({
           loader: 'css-loader',
           options: {
             importLoaders: 1,
-            minimize: true
           }
         },
           {
@@ -124,21 +123,27 @@ module.exports = (options) => ({
         },
           {
             loader: 'image-webpack-loader',
-            query: {
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
               pngquant: {
-                quality: '65-90',
+                quality: [0.65, 0.90],
                 speed: 4
               },
-              mozjpeg: {
-                progressive: true
-              },
               gifsicle: {
-                interlaced: true
+                interlaced: false,
               },
-              optipng: {
-                optimizationLevel: 7
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75
               }
-            },
+            }
           }
         ],
       },
