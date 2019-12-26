@@ -68,7 +68,7 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "lint-staged": "4.2.3",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.13",
     "nodemon": "1.12.1",
     "postcss-import": "^11.0.0",
     "postcss-loader": "2.0.6",
