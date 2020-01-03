@@ -118,6 +118,7 @@ module.exports = (options) => ({
         loaders: [{
           loader: 'file-loader',
           options: {
+            esModule: false,
             name: 'images/[name].[ext]'
           }
         },
