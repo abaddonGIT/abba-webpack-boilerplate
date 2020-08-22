@@ -1,0 +1,12 @@
+$body-font-size: 1.4rem;
+$body-font-family: Arial, sans-serif;
+
+html {
+  font-size: 62.5%;
+
+  body {
+    font-size: $body-font-size;
+    font-family: $body-font-family;
+    color: $black;
+  }
+}

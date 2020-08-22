@@ -51,12 +51,6 @@ module.exports = {
         test: /\.ts(x?)$/,
         exclude: /node_modules/,
         use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            },
-          },
           'ts-loader',
         ]
       },
@@ -66,7 +60,12 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env'],
+            plugins: [
+              '@babel/transform-runtime',
+              '@babel/plugin-transform-regenerator',
+              ['@babel/plugin-proposal-optional-chaining', { 'legacy': true }],
+            ],
           }
         }
       }
