@@ -1,9 +1,4 @@
-# Created by .gitignore support plugin (hsz.mobi)
 dist
 node_modules
-favicons/*
 .idea
-src/css/*.css
-src/htdocs/*.html
 npm-debug.log
-src/favicon/
