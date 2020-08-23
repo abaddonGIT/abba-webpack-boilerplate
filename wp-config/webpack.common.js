@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
@@ -6,12 +7,13 @@ const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const Assets = require('./vendors.assets');
 
 module.exports = {
   mode: 'development',
   entry: {
-    main: './src/scripts/index.ts',
-    vendor: './src/scripts/vendor.js'
+    main: path.join(process.cwd(), 'src/scripts/index.ts'),
+    vendor: path.join(process.cwd(), 'src/scripts/vendor.js')
   },
   module: {
     rules: [
@@ -82,6 +84,15 @@ module.exports = {
         }
       ]
     }),
+    new CopyPlugin({
+        patterns: Assets.map(asset => {
+          return {
+            from: path.resolve(__dirname, `../node_modules/${asset}`),
+            to: path.resolve(__dirname, '../dist/scripts/vendors'),
+          };
+        }),
+      }
+    ),
     new HtmlWebpackPlugin({
       title: 'tris-home-page',
       filename: 'index.html',
@@ -94,6 +105,7 @@ module.exports = {
       template: './src/404.html',
       inject: 'head'
     }),
+
     new PreloadWebpackPlugin({
       rel: 'preload',
       as(entry) {
@@ -106,14 +118,9 @@ module.exports = {
     }),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer'
-    })
+    }),
   ],
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: ['.tsx', '.ts', '.js'],
   },
-  externals: {
-    $: 'jquery',
-    jquery: 'jQuery',
-    'window.$': 'jquery'
-  }
 };
