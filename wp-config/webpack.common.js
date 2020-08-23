@@ -85,22 +85,23 @@ module.exports = {
       ]
     }),
     new CopyPlugin({
-        patterns: Assets.map(asset => {
+        patterns: Assets.map((asset) => {
+          const {source, destination} = asset;
           return {
-            from: path.resolve(__dirname, `../node_modules/${asset}`),
-            to: path.resolve(__dirname, '../dist/scripts/vendors'),
+            from: path.resolve(__dirname, `../node_modules/${source}`),
+            to: path.resolve(__dirname, `../dist/scripts/vendors/${destination}`),
           };
         }),
       }
     ),
     new HtmlWebpackPlugin({
-      title: 'tris-home-page',
+      title: 'home-page',
       filename: 'index.html',
       template: './src/index.html',
       inject: 'head'
     }),
     new HtmlWebpackPlugin({
-      title: 'tris-404-page',
+      title: '404-page',
       filename: '404.html',
       template: './src/404.html',
       inject: 'head'

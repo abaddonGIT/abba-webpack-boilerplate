@@ -1,15 +1,27 @@
-const JS = [
-  'jquery/dist/jquery.slim.min.js',
-  'jquery/dist/jquery.min.js',
-  'jquery-migrate/dist/jquery-migrate.min.js',
-  'jquery-selectric/src/jquery.selectric.js',
-  'jquery.maskedinput/src/jquery.maskedinput.js',
-  '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
-  '@webcomponents/webcomponentsjs/webcomponents-loader.js',
-];
+const VENDORS = [{
+  source: 'jquery/dist/',
+  destination: 'jquery',
+}, {
+  source: 'jquery-migrate/dist/',
+  destination: 'jquery-migrate',
+}, {
+  source: 'jquery-selectric/src/',
+  destination: 'jquery-selectric',
+}, {
+  source: 'jquery.maskedinput/src/',
+  destination: 'maskedInput',
+}, {
+  source: '@webcomponents/webcomponentsjs/',
+  destination: 'webcomponents',
+}, {
+  source: 'fancybox/dist/',
+  destination: 'fancybox',
+}, {
+  source: 'owl.carousel/dist/',
+  destination: 'owlCarousel',
+}, {
+  source: 'nouislider/distribute/',
+  destination: 'noUiSlider',
+}];
 
-const CSS = [
-  'jquery-selectric/src/selectric.scss',
-];
-
-module.exports = [...JS, ...CSS];
+module.exports = [...VENDORS];
