@@ -14,7 +14,7 @@ const VENDORS = [{
   source: '@webcomponents/webcomponentsjs/',
   destination: 'webcomponents',
 }, {
-  source: 'fancybox/dist/',
+  source: '@fancyapps/fancybox/dist/',
   destination: 'fancybox',
 }, {
   source: 'owl.carousel/dist/',

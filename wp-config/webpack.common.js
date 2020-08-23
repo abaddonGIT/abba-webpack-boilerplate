@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
@@ -70,7 +69,11 @@ module.exports = {
             ],
           }
         }
-      }
+      },
+      {
+        test: /\.pug$/,
+        use: ["pug-loader"],
+      },
     ]
   },
   plugins: [
@@ -86,7 +89,7 @@ module.exports = {
     }),
     new CopyPlugin({
         patterns: Assets.map((asset) => {
-          const {source, destination} = asset;
+          const { source, destination } = asset;
           return {
             from: path.resolve(__dirname, `../node_modules/${source}`),
             to: path.resolve(__dirname, `../dist/scripts/vendors/${destination}`),
@@ -97,13 +100,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'home-page',
       filename: 'index.html',
-      template: './src/index.html',
+      template: './src/index.pug',
       inject: 'head'
     }),
     new HtmlWebpackPlugin({
       title: '404-page',
       filename: '404.html',
-      template: './src/404.html',
+      template: './src/404.pug',
       inject: 'head'
     }),
 

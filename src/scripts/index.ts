@@ -13,3 +13,8 @@ console.log(
 
 OfflinePluginRuntime.install();
 svg4everybody();
+
+$(() => {
+  const site = new Site();
+  site.init();
+});
