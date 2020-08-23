@@ -1,6 +1,7 @@
 const path = require('path');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -32,6 +33,30 @@ module.exports = {
               publicPath: '/images/'
             }
           }
+        ]
+      },
+      {
+        test: /icons\/.*\.svg$/,
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              extract: true,
+              spriteFilename: '../dist/images/icons/sprite.svg',
+              runtimeCompat: true
+            }
+          },
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                { removeTitle: true },
+                { removeStyleElement: true },
+                { convertColors: { shorthex: false } },
+                { convertPathData: false }
+              ]
+            }
+          },
         ]
       },
       {
@@ -78,6 +103,9 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new SpriteLoaderPlugin({
+      plainSprite: true
+    }),
     new WriteFilePlugin(),
     new CopyPlugin({
       patterns: [

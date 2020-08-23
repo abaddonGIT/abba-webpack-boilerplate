@@ -2,6 +2,7 @@ import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 // @ts-ignore
 import svg4everybody from 'svg4everybody';
 
+import './svg-icons';
 import Site from './Site';
 
 import '../style/index.scss';
