@@ -1,5 +1,5 @@
 {
-  "name": "webpack4-dev-kit",
+  "name": "abba-webpack-boilerplate",
   "version": "1.0.0",
   "description": "Site boilerplate on webpack4",
   "main": "index.ts",
