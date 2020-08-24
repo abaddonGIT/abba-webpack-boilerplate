@@ -1,9 +1,7 @@
-import { FANCYBOX_SELECTOR } from "./constants";
+import { FANCYBOX_SELECTOR } from './constants';
 
 class Site {
-  constructor() {
-
-  }
+  constructor() {}
 
   public init = (): void => {
     (<any>$(FANCYBOX_SELECTOR)).fancybox();
@@ -11,4 +9,3 @@ class Site {
 }
 
 export default Site;
-
