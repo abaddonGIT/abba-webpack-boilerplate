@@ -1,24 +1,10 @@
-# WebPackAndGulp
-Start project with Gulp and Webpack3
+# Webpack site boilerplate
 
 ## Install
-    npm install    
-## Fast install
-    yarn install
+    yarn install    
 ### Start dev server
-    npm start
+    yarn start
 ### Production build    
-    npm build
-### Start eslint
-    npm run lint
-
-## Gulp tasks
-
-#### Create sprite image
-    gulp sprites
-#### Create svg sprite
-    gulp svg
-#### Minify images
-    gulp imagemin
-#### Generate mobile icons
-    gulp favicon
+    yarn run build
+### Update package.json
+    yarn run check
