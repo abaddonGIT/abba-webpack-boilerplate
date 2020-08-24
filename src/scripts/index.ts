@@ -1,3 +1,4 @@
+// @ts-ignore
 import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 // @ts-ignore
 import svg4everybody from 'svg4everybody';
@@ -9,7 +10,7 @@ import '../style/index.scss';
 
 console.log(
   '%cHello!!! If you have suggestions for this boilerplate please do PR ',
-  'background: lightgreen; border: 1px solid #deepskyblue; color: #000'
+  'background: lightgreen; border: 1px solid #deepskyblue; color: #000',
 );
 
 OfflinePluginRuntime.install();
