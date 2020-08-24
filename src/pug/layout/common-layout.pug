@@ -1,0 +1,34 @@
+include ../mixins/attach-scripts
+include ../mixins/svg-icon
+
+doctype html
+head
+    meta(charset='UTF-8')
+    title Webpack boilerplate 📦📦📦
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(name='Description' content='Webpack starter boilerplate.')
+    meta(property='og:title' content='Webpack boilerplate')
+    meta(property='og:type' content='website')
+    meta(property='og:url' content='https://github.com/abaddonGIT/WebPackAndGulp.git')
+    meta(property='og:image' content='https://i.imgur.com/lxRBpeb.jpg')
+    meta(property='og:image:alt' content='A blue package, symbolizing what webpack does.')
+    meta(property='og:description' content='Webpack starter boilerplate.')
+    meta(name='twitter:card' content='summary')
+    meta(name='twitter:creator' content='')
+    meta(name='theme-color' content='#2c638f')
+    meta(name='msapplication-navbutton-color' content='#2c638f')
+    meta(name='apple-mobile-web-app-status-bar-style' content='black-translucent')
+    block Head
+header.header
+    block Header
+main.main
+    block Content
+footer.footer
+    +attach-scripts([
+      'scripts/vendors/jquery/jquery.min.js',
+      'scripts/vendors/jquery-migrate/jquery-migrate.min.js',
+      'scripts/vendors/fancybox/jquery.fancybox.js',
+      'scripts/vendors/webcomponents/custom-elements-es5-adapter.js',
+      'scripts/vendors/webcomponents/webcomponents-loader.js'
+    ])
+    block Footer
