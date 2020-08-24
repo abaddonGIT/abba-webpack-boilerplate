@@ -39,6 +39,7 @@
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [Bulma CSS framework](https://bulma.io/)
+- [Axios http client](https://github.com/axios/axios)
 - Included vendors libs (
 [jQuery](https://jquery.com/), 
 [Fancybox](https://fancyapps.com/fancybox/3/), 
