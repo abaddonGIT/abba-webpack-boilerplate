@@ -3,6 +3,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub issues](https://img.shields.io/github/issues/abaddonGIT/abba-webpack-boilerplate)](https://github.com/abaddonGIT/abba-webpack-boilerplate/issues)
 [![GitHub stars](https://img.shields.io/github/stars/abaddonGIT/abba-webpack-boilerplate)](https://github.com/abaddonGIT/abba-webpack-boilerplate/stargazers)
+
+![Webpack started site boilerplate](https://miro.medium.com/max/2000/1*Ko-WJyAJ1uoOX4LHaHkweA.png)
+
 ## Requirements
 - node >= 10.13.0
 - yarn or npm
