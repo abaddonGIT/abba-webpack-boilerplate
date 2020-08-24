@@ -1,4 +1,8 @@
-# Webpack site boilerplate
+# Webpack started site boilerplate
+
+## Requirements
+- node >= 10.13.0
+- yarn or npm
 
 ## Install
     yarn install    
