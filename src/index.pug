@@ -9,8 +9,12 @@ block Content
             a.js-fancy.logo-link(href=require('./images/favicon.svg') aria-label='Webpack boilerplate.')
                 img.logo-img(src=require('./images/favicon.svg') alt='website logo')
             h1
-                span webpack
-                a.link(href='https://github.com/abaddonGIT/WebPackAndGulp.git' aria-label='Webpack boilerplate.') boilerplate
+                span
+                    | Site webpack
+                a.link(href='https://github.com/abaddonGIT/WebPackAndGulp.git' aria-label='Webpack boilerplate.')
+                    |  boilerplates
             +svg-icon('twitter')
             +svg-icon('facebook')
 block Footer
+    .container
+        | Footer content
