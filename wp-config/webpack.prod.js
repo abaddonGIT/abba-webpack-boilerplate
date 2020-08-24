@@ -95,11 +95,14 @@ module.exports = merge(common, {
     }),
     new FaviconsWebpackPlugin({
       logo: './src/images/favicon.svg',
+      prefix: '',
+      publicPath: 'assets/',
+      outputPath: 'assets/',
       favicons: {
         appName: 'site-webpack-boilerplate',
         appDescription: 'Start boilerplate for site',
         developerName: 'Michael Goriachkin (abaddonGIT)',
-        developerURL: null, // prevent retrieving from the nearest package.json
+        developerURL: null,
         background: '#fafafa',
         theme_color: '#FFA8A8',
         icons: {

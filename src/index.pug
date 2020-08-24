@@ -1,14 +1,16 @@
 extends pug/layout/common-layout
 
 block Header
-    | Header content
+    .container
+        | Header content
 block Content
     .wrapper
-        .nav
+        .container
             a.js-fancy.logo-link(href=require('./images/favicon.svg') aria-label='Webpack boilerplate.')
                 img.logo-img(src=require('./images/favicon.svg') alt='website logo')
             h1
                 span webpack
                 a.link(href='https://github.com/abaddonGIT/WebPackAndGulp.git' aria-label='Webpack boilerplate.') boilerplate
             +svg-icon('twitter')
+            +svg-icon('facebook')
 block Footer
