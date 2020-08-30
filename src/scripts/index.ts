@@ -6,6 +6,9 @@ import svg4everybody from 'svg4everybody';
 import './svg-icons';
 import Site from './Site';
 
+// Custom web-components
+import '../web-components';
+
 import '../style/index.scss';
 
 console.log(
