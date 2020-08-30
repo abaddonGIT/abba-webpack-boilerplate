@@ -1,5 +1,9 @@
 // css framework
 @import "~bulma";
+
+@import "helpers/functions";
+@import "helpers/mixins";
+
 // vendors
 @import "base/vendors";
 
@@ -8,5 +12,3 @@
 @import "base/typography";
 @import "base/clearfix";
 @import "base/global";
-
-@import "helpers/mixins";
