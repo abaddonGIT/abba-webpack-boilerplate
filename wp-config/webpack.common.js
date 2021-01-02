@@ -15,6 +15,9 @@ module.exports = {
     main: path.join(process.cwd(), 'src/scripts/index.ts'),
     vendor: path.join(process.cwd(), 'src/scripts/vendor.js')
   },
+  devServer: {
+    port: 9000,
+  },
   module: {
     rules: [
       {
@@ -23,6 +26,7 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
+        exclude: [path.resolve(__dirname, 'src/images/icons')],
         use: [
           {
             loader: 'file-loader',
@@ -36,12 +40,28 @@ module.exports = {
         ]
       },
       {
-        test: /icons\/.*\.svg$/,
+        test: /\.(woff|woff2|ttf|otf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              esModule: false,
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+              publicPath: 'fonts/'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.svg$/,
+        include: path.resolve(__dirname, 'src/images/icons'),
         use: [
           {
             loader: 'svg-sprite-loader',
             options: {
               extract: true,
+              esModule: false,
               spriteFilename: '../dist/images/icons/sprite.svg',
               runtimeCompat: true
             }
@@ -57,20 +77,6 @@ module.exports = {
               ]
             }
           },
-        ]
-      },
-      {
-        test: /\.(woff|woff2|ttf|otf)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              esModule: false,
-              name: '[name].[ext]',
-              outputPath: 'fonts/',
-              publicPath: 'fonts/'
-            }
-          }
         ]
       },
       {
