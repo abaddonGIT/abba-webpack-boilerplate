@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
-        exclude: [path.resolve(__dirname, 'src/images/icons')],
+        exclude: [path.join(process.cwd(), 'src/images/icons')],
         use: [
           {
             loader: 'file-loader',
@@ -54,32 +54,6 @@ module.exports = {
         ]
       },
       {
-        test: /\.svg$/,
-        include: path.resolve(__dirname, 'src/images/icons'),
-        use: [
-          {
-            loader: 'svg-sprite-loader',
-            options: {
-              extract: true,
-              esModule: false,
-              spriteFilename: '../dist/images/icons/sprite.svg',
-              runtimeCompat: true
-            }
-          },
-          {
-            loader: 'svgo-loader',
-            options: {
-              plugins: [
-                { removeTitle: true },
-                { removeStyleElement: true },
-                { convertColors: { shorthex: false } },
-                { convertPathData: false }
-              ]
-            }
-          },
-        ]
-      },
-      {
         test: /\.ts(x?)$/,
         exclude: /node_modules/,
         use: [
@@ -104,6 +78,33 @@ module.exports = {
       {
         test: /\.pug$/,
         use: ["pug-loader"],
+      },
+      {
+        test: /icons\/.*\.svg$/,
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              extract: true,
+              esModule: false,
+              spriteFilename: 'icons-sprite.svg',
+              runtimeCompat: true,
+              outputPath: 'images/',
+              publicPath: 'images/'
+            }
+          },
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                { removeTitle: true },
+                { removeStyleElement: true },
+                { convertColors: { shorthex: false } },
+                { convertPathData: false }
+              ]
+            }
+          },
+        ]
       },
     ]
   },
