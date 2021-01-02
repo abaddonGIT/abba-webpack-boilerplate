@@ -80,6 +80,11 @@ module.exports = {
         use: ["pug-loader"],
       },
       {
+        test: /\.svg(\?.*)?$/,
+        loader: 'url-loader',
+        include: path.join(process.cwd(), 'src/images/icons'),
+      },
+      {
         test: /icons\/.*\.svg$/,
         use: [
           {
