@@ -1,5 +1,7 @@
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
+// Need for normal live reload for pug files
+const LiveReloadPlugin = require('@kooneko/livereload-webpack-plugin')
 const common = require('./webpack.common.js')
 const paths = require('./paths')
 
@@ -40,5 +42,8 @@ module.exports = merge(common, {
   plugins: [
     // Only update what has changed on hot reload
     new webpack.HotModuleReplacementPlugin(),
+    new LiveReloadPlugin({
+      appendScriptTag: true,
+    }),
   ],
 })

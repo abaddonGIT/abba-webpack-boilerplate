@@ -1,5 +1,7 @@
 include ../mixins/attach-scripts
-//include ../mixins/svg-icon
+include ../mixins/svg-icon
+
+- var { custom } = htmlWebpackPlugin.options
 
 doctype html
 head
@@ -25,10 +27,11 @@ main.main
     block Content
 footer.footer
     +attach-scripts([
-     'jquery/jquery.min.js',
-     'jquery-migrate/jquery-migrate.min.js',
-     'fancybox/jquery.fancybox.js',
-     'webcomponents/custom-elements-es5-adapter.js',
-     'webcomponents/webcomponents-loader.js'
+      './assets/jquery/jquery.min.js',
+      './assets/jquery-migrate/jquery-migrate.min.js',
+      './assets/fancybox/jquery.fancybox.js',
+      './assets/webcomponents/custom-elements-es5-adapter.js',
+      './assets/webcomponents/webcomponents-loader.js',
+      custom,
     ])
     block Footer

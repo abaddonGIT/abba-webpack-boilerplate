@@ -16,7 +16,9 @@ module.exports = {
         new HtmlWebpackPlugin({
           filename: base + '.html',
           template: paths.src + '/pug/pages/' + base + '.pug',
-          inject: true
+          inject: true,
+          custom: (process.env.NODE_ENV === 'development') ?
+            'http://localhost:35729/livereload.js' : '',
         })
       )
     })
