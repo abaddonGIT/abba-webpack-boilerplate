@@ -1,4 +1,4 @@
-//include ../mixins/attach-scripts
+include ../mixins/attach-scripts
 //include ../mixins/svg-icon
 
 doctype html
@@ -24,11 +24,11 @@ header.header
 main.main
     block Content
 footer.footer
-    //+attach-scripts([
-    //  'scripts/vendors/jquery/jquery.min.js',
-    //  'scripts/vendors/jquery-migrate/jquery-migrate.min.js',
-    //  'scripts/vendors/fancybox/jquery.fancybox.js',
-    //  'scripts/vendors/webcomponents/custom-elements-es5-adapter.js',
-    //  'scripts/vendors/webcomponents/webcomponents-loader.js'
-    //])
+    +attach-scripts([
+     'jquery/jquery.min.js',
+     'jquery-migrate/jquery-migrate.min.js',
+     'fancybox/jquery.fancybox.js',
+     'webcomponents/custom-elements-es5-adapter.js',
+     'webcomponents/webcomponents-loader.js'
+    ])
     block Footer

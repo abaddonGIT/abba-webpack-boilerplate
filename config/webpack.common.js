@@ -2,6 +2,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const PrettierPlugin = require('prettier-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
+const path = require('path')
 
 const paths = require('./paths')
 const utils = require('./utils')
@@ -19,6 +20,7 @@ module.exports = {
 
   // Customize the webpack build process
   plugins: [
+    // Generates an HTML file from a template
     ...utils.getAllPugPages(),
     // Removes/cleans build folders and unused assets when rebuilding
     new CleanWebpackPlugin(),
@@ -35,15 +37,16 @@ module.exports = {
         },
       ],
     }),
-
-    // Generates an HTML file from a template
-    // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
-    // new HtmlWebpackPlugin({
-    //   title: 'webpack Boilerplate',
-    //   favicon: paths.src + '/images/favicon.png',
-    //   template: paths.src + '/template.html', // template file
-    //   filename: 'index.html', // output file
-    // }),
+    new CopyWebpackPlugin({
+      patterns: paths.vendors.map((asset) => {
+        const { source, destination } = asset
+        return {
+          from: path.join(process.cwd(), `node_modules/${source}`),
+          to: `assets/${destination}`,
+        }
+      }),
+    }
+    ),
 
     // ESLint configuration
     new ESLintPlugin({
