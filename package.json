@@ -12,7 +12,12 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js --hot",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-    "lint": "eslint webpack-boilerplate src config || true"
+    "lint": "eslint abba-webpack-boilerplate src config || true",
+    "ts-check": "tsc --noEmit",
+    "prettier": "prettier --write '**/*.{ts,tsx,js}'",
+    "fix-code-style": "npm run prettier && npm run lint:fix",
+    "lint:fix": "eslint --fix . --ext .tsx,.ts,.js . --quiet",
+    "check": "npx npm-check-updates -u"
   },
   "keywords": [
     "webpack",
@@ -28,6 +33,7 @@
     "@babel/preset-env": "^7.12.11",
     "@fancyapps/fancybox": "^3.5.7",
     "@types/jquery": "^3.5.1",
+    "@types/svg4everybody": "^2.1.1",
     "@webcomponents/webcomponentsjs": "^2.4.4",
     "air-datepicker": "^2.2.3",
     "babel-loader": "^8.2.2",
@@ -75,8 +81,11 @@
   "dependencies": {
     "@kooneko/livereload-webpack-plugin": "^1.2.0",
     "glob": "^7.1.6",
+    "offline-plugin": "^5.0.7",
     "raw-loader": "^4.0.2",
     "svg-sprite-loader": "^5.2.1",
-    "svgo-loader": "^2.2.1"
+    "svg4everybody": "^2.1.9",
+    "svgo-loader": "^2.2.1",
+    "normalize.css": "^8.0.1"
   }
 }

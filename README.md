@@ -1,15 +1,23 @@
-# 📦 webpack Boilerplate
+# 📦📦📦📦📦 webpack Boilerplate
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![GitHub issues](https://img.shields.io/github/issues/abaddonGIT/abba-webpack-boilerplate)](https://github.com/abaddonGIT/abba-webpack-boilerplate/issues)
+[![GitHub stars](https://img.shields.io/github/stars/abaddonGIT/abba-webpack-boilerplate)](https://github.com/abaddonGIT/abba-webpack-boilerplate/stargazers)
+
+![Webpack started site boilerplate](https://miro.medium.com/max/2000/1*Ko-WJyAJ1uoOX4LHaHkweA.png)
 
 Sensible webpack 5 boilerplate using Babel, PostCSS and Sass with a hot dev server and an optimized production build.
 
+## Requirements
+- node >= 10.13.0
+- yarn or npm
+
 ## Installation
 
-Clone this repo and npm install.
+Clone this repo and npm install. 
 
 ```bash
-npm i
+yarn install
 ```
 
 ## Usage
@@ -17,7 +25,7 @@ npm i
 ### Development server
 
 ```bash
-npm start
+yarn run start
 ```
 
 You can view the development server at `localhost:8080`.
@@ -25,19 +33,36 @@ You can view the development server at `localhost:8080`.
 ### Production build
 
 ```bash
-npm run build
+yarn run build
 ```
 
 > Note: Install [http-server](https://www.npmjs.com/package/http-server) globally to deploy a simple server.
 
 ```bash
-npm i -g http-server
+yarn add http-server
 ```
 
 You can view the deploy by creating a server in `dist`.
 
 ```bash
 cd dist && http-server
+```
+
+#### Update package.json
+```bash
+yarn run check
+```
+#### ESLint check
+```bash
+yarn run lint
+```
+#### TS check
+```bash
+yarn run ts-check
+```
+#### Fix code style with prettier
+```bash
+yarn run fix-code-style 
 ```
 
 ## Features
@@ -95,7 +120,7 @@ cd dist && http-server
 
 ## Author
 
-- [Tania Rascia](https://www.taniarascia.com)
+- [Mickle Goriachkin (abaddonGIT) ](https://github.com/abaddonGIT)
 
 ## License
 

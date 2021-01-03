@@ -1,5 +1,5 @@
 const { merge } = require('webpack-merge')
-
+const OfflinePlugin = require('offline-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const common = require('./webpack.common.js')
@@ -41,6 +41,7 @@ module.exports = merge(common, {
       filename: 'styles/[name].[contenthash].css',
       chunkFilename: '[id].css',
     }),
+    new OfflinePlugin(),
   ],
   optimization: {
     minimize: true,
