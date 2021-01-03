@@ -1,5 +1,0 @@
-mixin attach-scripts(list)
-    each item in list
-        - var isExternal = /^(?:https?\:)?\/\//i;
-        - var item = isExternal.test(item) ? item : item;
-            script(src=item)
