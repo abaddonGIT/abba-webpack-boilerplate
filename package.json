@@ -81,7 +81,6 @@
   "dependencies": {
     "@kooneko/livereload-webpack-plugin": "^1.2.0",
     "glob": "^7.1.6",
-    "offline-plugin": "^5.0.7",
     "raw-loader": "^4.0.2",
     "svg-sprite-loader": "^5.2.1",
     "svg4everybody": "^2.1.9",
