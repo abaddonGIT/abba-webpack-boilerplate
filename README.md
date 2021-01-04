@@ -87,6 +87,9 @@ yarn run fix-code-style
 - [`@babel/core`](https://www.npmjs.com/package/@babel/core) - Transpile ES6+ to backwards compatible JavaScript
 - [`@babel/plugin-proposal-class-properties`](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) - Use properties directly on a class (an example Babel config)
 - [`@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env) - Smart defaults for Babel
+- [`@babel/plugin-proposal-optional-chaining`](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining.html) - Transform optional chaining operators into a series of nil checks
+- [`@babel/plugin-transform-regenerator`](https://babeljs.io/docs/en/babel-plugin-transform-regenerator) - Explode async and generator functions into a state machine.
+- [`@babel/plugin-transform-runtime`](https://babeljs.io/docs/en/babel-plugin-transform-runtime) - Externalise references to helpers and builtins, automatically polyfilling your code without polluting globals
 
 ### Loaders
 
@@ -97,6 +100,10 @@ yarn run fix-code-style
   - [`postcss-preset-env`](https://www.npmjs.com/package/postcss-preset-env) - Sensible defaults for PostCSS
 - [`css-loader`](https://webpack.js.org/loaders/css-loader/) - Resolve CSS imports
 - [`style-loader`](https://webpack.js.org/loaders/style-loader/) - Inject CSS into the DOM
+- [`ts-loader`](https://github.com/TypeStrong/ts-loader) - typescript support
+- [`svg-sprite-loader`](https://github.com/JetBrains/svg-sprite-loader) - generate svg sprites
+- [`svgo-loader`](https://github.com/rpominov/svgo-loader) - optimisation for svg images
+- [`pug-loader`](https://github.com/pugjs/pug-loader) - pug template engine
 
 ### Plugins
 
@@ -105,6 +112,7 @@ yarn run fix-code-style
 - [`html-webpack-plugin`](https://github.com/jantimon/html-webpack-plugin) - Generate HTML files from template
 - [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin) - Extract CSS into separate files
 - [`css-minimizer-webpack-plugin`](https://webpack.js.org/plugins/css-minimizer-webpack-plugin/) - Optimize and minimize CSS assets
+- [`offline-plugin`](https://github.com/NekR/offline-plugin) - Provide an offline experience for webpack projects
 
 ### Linters
 
@@ -117,6 +125,17 @@ yarn run fix-code-style
 - [`eslint-webpack-plugin`](https://github.com/webpack-contrib/eslint-webpack-plugin) - ESLint configuration for webpack
 - [`prettier`](https://github.com/prettier/prettier) - Dependency for `prettier-webpack-plugin` plugin
 - [`prettier-webpack-plugin`](https://github.com/hawkins/prettier-webpack-plugin) - Prettier configuration for webpack
+
+### Libs
+
+- [jQuery](https://jquery.com/), 
+- [Fancybox](https://fancyapps.com/fancybox/3/), 
+- [OwlCarousel](https://owlcarousel2.github.io/OwlCarousel2/), 
+- [FlexSlider](http://flexslider.woothemes.com/),
+- [jquery-selectric](https://selectric.js.org/),
+- [jquery.maskedinput](https://github.com/digitalBush/jquery.maskedinput),
+- [NoUiSlider](https://refreshless.com/nouislider/)
+- [WebComponentsJs](https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs)
 
 ## Author
 

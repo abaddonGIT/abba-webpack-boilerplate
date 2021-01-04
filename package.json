@@ -5,9 +5,9 @@
   "main": "index.js",
   "author": "Abaddon",
   "bugs": {
-    "url": "https://github.com/abaddonGIT/WebPackAndGulp/issues"
+    "url": "https://github.com/abaddonGIT/abba-webpack-boilerplate/issues"
   },
-  "homepage": "https://github.com/abaddonGIT/WebPackAndGulp#readme",
+  "homepage": "https://github.com/abaddonGIT/abba-webpack-boilerplate#readme",
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js --hot",
