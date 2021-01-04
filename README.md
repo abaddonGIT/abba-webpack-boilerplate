@@ -112,7 +112,6 @@ yarn run fix-code-style
 - [`html-webpack-plugin`](https://github.com/jantimon/html-webpack-plugin) - Generate HTML files from template
 - [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin) - Extract CSS into separate files
 - [`css-minimizer-webpack-plugin`](https://webpack.js.org/plugins/css-minimizer-webpack-plugin/) - Optimize and minimize CSS assets
-- [`offline-plugin`](https://github.com/NekR/offline-plugin) - Provide an offline experience for webpack projects
 
 ### Linters
 
