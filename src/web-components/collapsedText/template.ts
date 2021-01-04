@@ -1,6 +1,6 @@
-const fontSize = 26;
-const lineHeight = 1.4;
-const linesToShow = 2;
+const fontSize = 26
+const lineHeight = 1.4
+const linesToShow = 2
 
 const style = `
   .collapsed-text {
@@ -15,13 +15,13 @@ const style = `
         overflow: hidden;
         text-overflow: ellipsis;
     }
-`;
+`
 
 const template = `
   <style>
     ${style}
   </style>  
   <div class="collapsed-text"></div>
-`;
+`
 
-export default template;
+export default template

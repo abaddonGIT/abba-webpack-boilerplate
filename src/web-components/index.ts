@@ -1,3 +1,3 @@
-import CollapsedText from './collapsedText';
+import CollapsedText from './collapsedText'
 
-customElements.define('collapsed-text', CollapsedText);
+customElements.define('collapsed-text', CollapsedText)

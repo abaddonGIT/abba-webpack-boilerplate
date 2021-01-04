@@ -1,3 +1,3 @@
-import CollapsedText from './collapsedText';
+import CollapsedText from './collapsedText'
 
-export default CollapsedText;
+export default CollapsedText
