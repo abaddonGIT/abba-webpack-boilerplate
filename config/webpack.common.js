@@ -39,14 +39,14 @@ module.exports = {
       ],
     }),
     new CopyWebpackPlugin({
-      patterns: paths.vendors.map((asset) => {
-        const { source, destination } = asset
-        return {
-          from: path.join(process.cwd(), `node_modules/${source}`),
-          to: `assets/${destination}`,
-        }
-      }),
-    },
+        patterns: paths.vendors.map((asset) => {
+          const { source, destination } = asset
+          return {
+            from: path.join(process.cwd(), `node_modules/${source}`),
+            to: `assets/${destination}`,
+          }
+        }),
+      },
     ),
 
     // ESLint configuration
@@ -110,12 +110,16 @@ module.exports = {
         },
       },
       // Images: Copy image files to build folder
-      { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        type: 'asset/resource',
+      },
 
       // Fonts and SVGs: Inline files
       { test: /\.(woff(2)?|eot|ttf|otf)$/, type: 'asset/inline' },
       {
-        test: /icons\/svg\/.*\.svg$/,
+        test: /\.svg$/,
+        include: path.join(process.cwd(), 'src/images/icons/svg'),
         use: [
           {
             loader: 'svg-sprite-loader',
